@@ -136,7 +136,7 @@ export default function LandingPage() {
         <div className="relative z-10 text-center max-w-3xl mx-auto px-4 sm:px-6 pt-20">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
 
-            <motion.p variants={fadeUp} className="section-label mb-5">
+            <motion.p variants={fadeUp} className="text-sm sm:text-base font-semibold tracking-widest uppercase text-blue-400 mb-5">
               Tetride™ by SuperMetallix
             </motion.p>
 
@@ -193,9 +193,9 @@ export default function LandingPage() {
       <section className="bg-[#0d1117] border-y border-[#1f2937] py-12">
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x divide-[#1f2937]">
           <StatItem value={15} suffix="+" label="Years of R&D" />
-          <div className="text-center px-6">
+          <div className="flex flex-col items-center px-6">
             <div className="text-4xl lg:text-5xl font-bold text-white font-display mb-1">Patented</div>
-            <div className="text-sm text-gray-400 uppercase tracking-widest">Technology</div>
+            <div className="text-sm text-gray-400 uppercase tracking-widest text-center">Technology</div>
           </div>
           <div className="text-center px-6">
             <div className="text-4xl lg:text-5xl font-bold text-white font-display mb-1">UCLA</div>
