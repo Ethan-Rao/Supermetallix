@@ -1,0 +1,17 @@
+name: supermetallix
+region: nyc
+services:
+  - name: web
+    github:
+      repo: Ethan-Rao/Supermetallix
+      branch: main
+      deploy_on_push: true
+    build_command: npm run build
+    run_command: npm start
+    environment_slug: node-js
+    instance_size_slug: apps-s-1vcpu-0.5gb
+    instance_count: 1
+    http_port: 3000
+    envs:
+      - key: NODE_ENV
+        value: production
