@@ -25,6 +25,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Lockfile — omitted to avoid cross-platform native module conflicts
+# (DO buildpack runs npm install fresh on Linux)
+package-lock.json
+
 # local env files
 .env*.local
 
@@ -35,8 +39,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Project-specific: source zip archive (large binary, not needed in repo)
+# Project-specific: source zip archive and source assets folder
 OneDrive_2026-06-10.zip
+OneDrive_2026-06-10/
+
+# Original site source document
+Current Page Source.docx
 
 # Cursor project files
 .cursor/
