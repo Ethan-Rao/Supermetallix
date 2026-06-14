@@ -16,7 +16,6 @@ const staggerContainer = {
   visible: { transition: { staggerChildren: 0.15 } },
 };
 
-// Static particles — avoids hydration mismatch from Math.random()
 const PARTICLES = [
   { w: 2, h: 2, l: 15, t: 22, d: 6,   dur: 5.2 },
   { w: 3, h: 3, l: 33, t: 45, d: 1,   dur: 4.1 },
@@ -50,24 +49,14 @@ function useCountUp(target: number, duration = 2000, inView: boolean) {
   return count;
 }
 
-function StatItem({
-  value,
-  label,
-  suffix = "",
-  prefix = "",
-}: {
-  value: number;
-  label: string;
-  suffix?: string;
-  prefix?: string;
-}) {
+function StatItem({ value, label, suffix = "" }: { value: number; label: string; suffix?: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const count = useCountUp(value, 2000, inView);
   return (
     <div ref={ref} className="text-center px-6">
       <div className="text-4xl lg:text-5xl font-bold text-white font-display mb-1">
-        {prefix}{count}{suffix}
+        {count}{suffix}
       </div>
       <div className="text-sm text-gray-400 uppercase tracking-widest">{label}</div>
     </div>
@@ -85,37 +74,37 @@ const pillars = [
     icon: <DollarSign className="w-8 h-8 text-cyan-400" />,
     title: "Commercialization",
     description:
-      "Cost-effective synthesis at industrial scale — a fraction of the cost of diamond and CBN while delivering comparable or superior hardness.",
+      "Cost-effective synthesis at industrial scale at a fraction of the cost of diamond and CBN while delivering comparable or superior hardness.",
   },
   {
     icon: <Globe className="w-8 h-8 text-amber-400" />,
     title: "Market",
     description:
-      "The global cutting tools and superabrasives market exceeds $23B annually. Tetride™ targets the performance tier between tungsten carbide and diamond — a segment with no cost-competitive incumbent.",
+      "The global cutting tools and superabrasives market exceeds $23B annually. Tetride™ targets the performance tier between tungsten carbide and diamond, a segment with no cost-competitive incumbent.",
   },
 ];
 
 const teamMembers = [
   { name: "Dr. Richard Kaner", title: "Co-founder & CSO", img: "/images/Richard-Kaner-thumb.jpg" },
-  { name: "Jack Kavanaugh", title: "Co-founder & CEO", img: "/images/Jack-Kavanaugh-thumb.jpg" },
-  { name: "Chris Turner", title: "Team", img: "/images/Chris-Turner-thumb.jpg" },
-  { name: "Kesh Keshavan", title: "Team", img: "/images/Kesh-Keshavan-thumb.jpg" },
-  { name: "Robert Snukal", title: "Team", img: "/images/Robert-Snukal-thumb.jpg" },
+  { name: "Jack Kavanaugh",    title: "Co-founder & CEO", img: "/images/Jack-Kavanaugh-thumb.jpg" },
+  { name: "Chris Turner",      title: "Team",             img: "/images/Chris-Turner-thumb.jpg" },
+  { name: "Kesh Keshavan",     title: "Team",             img: "/images/Kesh-Keshavan-thumb.jpg" },
+  { name: "Robert Snukal",     title: "Team",             img: "/images/Robert-Snukal-thumb.jpg" },
 ];
 
 const galleryItems = [
-  { src: "/images/detail.jpg", label: "Material Detail" },
-  { src: "/images/powders2.jpg", label: "Powder Form" },
+  { src: "/images/detail.jpg",                      label: "Material Detail" },
+  { src: "/images/powders2.jpg",                    label: "Powder Form" },
   { src: "/images/cutting-wheel-and-drill-bits3.png", label: "Cutting Tools" },
-  { src: "/images/malcolm-cutting-machine2.jpg", label: "Industrial Application" },
+  { src: "/images/malcolm-cutting-machine2.jpg",    label: "Industrial Application" },
 ];
 
 export default function LandingPage() {
   return (
     <div className="bg-[#050810]">
+
       {/* ─── HERO ─── */}
       <section className="relative min-h-[78vh] flex items-center justify-center overflow-hidden">
-        {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/christopher-burns-8KfCR12oeUM-unsplash.jpg"
@@ -127,7 +116,6 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#050810]/60 via-[#050810]/40 to-[#050810]" />
         </div>
 
-        {/* Static particle dots */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           {PARTICLES.map((p, i) => (
             <div
@@ -145,48 +133,36 @@ export default function LandingPage() {
           ))}
         </div>
 
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="relative z-10 text-center max-w-3xl mx-auto px-4 sm:px-6 pt-20">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-            {/* Logo */}
-            <motion.div variants={fadeUp} className="flex justify-center mb-8">
-              <Image
-                src="/images/SuperMetalix-Logo-Main-white.png"
-                alt="SuperMetallix"
-                width={260}
-                height={80}
-                className="h-14 w-auto"
-                priority
-              />
-            </motion.div>
 
-            {/* H1 */}
+            <motion.p variants={fadeUp} className="section-label mb-5">
+              Tetride™ by SuperMetallix
+            </motion.p>
+
             <motion.h1
               variants={fadeUp}
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 font-display"
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 font-display"
             >
               Engineering the World&rsquo;s{" "}
               <span className="gradient-text">Hardest Materials</span>
             </motion.h1>
 
-            {/* Subtitle — plain language */}
             <motion.p
               variants={fadeUp}
-              className="text-lg sm:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed"
+              className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
             >
-              After 15 years of experiments, SuperMetallix has engineered a material hard enough to
-              scratch diamond — and unlike diamond, it can be cut and shaped using the same standard
-              machine tools already used by industry. This unlocks a new class of cutting tools,
-              drill bits, and wear surfaces that fills the performance gap between today&rsquo;s
-              tungsten carbide and diamond.
+              Tetride™ achieves hardness beyond diamond while remaining compatible with standard
+              industrial machine tools. The result of 15 years of UCLA research, now ready for
+              commercial deployment.
             </motion.p>
 
-            {/* CTAs */}
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4 justify-center">
-              <Link href="#mission" className="btn-primary text-base px-8 py-4">
-                Learn More <ArrowRight className="w-5 h-5" />
+              <Link href="/research" className="btn-primary text-base px-8 py-4">
+                Explore the Science <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/contact" className="btn-secondary text-base px-8 py-4">
-                Contact Us
+              <Link href="/contact?purpose=investment" className="btn-secondary text-base px-8 py-4">
+                Investor Inquiry
               </Link>
             </motion.div>
 
@@ -199,10 +175,10 @@ export default function LandingPage() {
                 <p className="text-white/50 text-sm tracking-wider uppercase">Video Coming Soon</p>
               </div>
             </motion.div>
+
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -218,106 +194,22 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x divide-[#1f2937]">
           <StatItem value={15} suffix="+" label="Years of R&D" />
           <div className="text-center px-6">
-            <div className="text-3xl lg:text-4xl font-bold text-white font-display mb-1 leading-tight">
-              Scratches<br />Diamond
-            </div>
-            <div className="text-sm text-gray-400 uppercase tracking-widest">Proven Hardness</div>
+            <div className="text-4xl lg:text-5xl font-bold text-white font-display mb-1">Patented</div>
+            <div className="text-sm text-gray-400 uppercase tracking-widest">Technology</div>
           </div>
           <div className="text-center px-6">
             <div className="text-4xl lg:text-5xl font-bold text-white font-display mb-1">UCLA</div>
             <div className="text-sm text-gray-400 uppercase tracking-widest">Origin</div>
           </div>
           <div className="text-center px-6">
-            <div className="text-3xl lg:text-4xl font-bold gradient-text font-display mb-1 leading-tight">
-              Standard<br />Tooling
-            </div>
-            <div className="text-sm text-gray-400 uppercase tracking-widest">Machine-Tool Ready</div>
+            <div className="text-3xl lg:text-4xl font-bold gradient-text font-display mb-1">$23B+</div>
+            <div className="text-sm text-gray-400 uppercase tracking-widest">Market Size</div>
           </div>
         </div>
       </section>
 
-      {/* ─── MISSION STATEMENT ─── */}
-      <section id="mission" className="py-24 px-4 text-center max-w-4xl mx-auto">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-        >
-          <motion.p variants={fadeUp} className="section-label mb-6">
-            Our Mission
-          </motion.p>
-          <motion.blockquote
-            variants={fadeUp}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8 font-display"
-          >
-            &ldquo;We have created a material hard enough to scratch a diamond.&rdquo;
-          </motion.blockquote>
-          <motion.p variants={fadeUp} className="text-gray-400 text-lg leading-relaxed">
-            Tetride™ represents a fundamental advance in materials science — a superhard metal
-            boride formulation that opens the door to a new class of industrial materials. Developed
-            at UCLA over 15+ years, it&rsquo;s now ready for commercial scale. SuperMetallix is the
-            company bringing it to market.
-          </motion.p>
-
-          {/* Hardness chart */}
-          <motion.div
-            variants={fadeUp}
-            className="mt-12 rounded-2xl overflow-hidden border border-gray-200 bg-white p-6 shadow-xl max-w-4xl mx-auto"
-          >
-            <Image
-              src="/images/hardness-chart.png"
-              alt="Hardness comparison chart"
-              width={900}
-              height={500}
-              className="w-full h-auto"
-            />
-            <p className="text-gray-500 text-sm text-center mt-3">
-              Tetride™ fills the performance gap between today&rsquo;s tungsten carbide cutting
-              tools and diamond — while remaining machinable with standard industry equipment.
-            </p>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* ─── THREE PILLARS ─── */}
-      <section className="py-16 px-4 bg-[#0d1117]">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={staggerContainer}
-            className="text-center mb-14"
-          >
-            <motion.p variants={fadeUp} className="section-label mb-3">
-              Why SuperMetallix
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="section-heading">
-              Three Pillars of Value
-            </motion.h2>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-6"
-          >
-            {pillars.map((p) => (
-              <motion.div key={p.title} variants={fadeUp} className="card group">
-                <div className="mb-4 p-3 rounded-lg bg-white/5 w-fit">{p.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3">{p.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{p.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* ─── MATERIALS GALLERY ─── */}
-      <section className="py-16 px-4">
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
@@ -326,12 +218,8 @@ export default function LandingPage() {
             variants={staggerContainer}
             className="text-center mb-10"
           >
-            <motion.p variants={fadeUp} className="section-label mb-3">
-              The Material
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="section-heading">
-              Tetride™ in Every Form
-            </motion.h2>
+            <motion.p variants={fadeUp} className="section-label mb-3">The Material</motion.p>
+            <motion.h2 variants={fadeUp} className="section-heading">Tetride™ in Every Form</motion.h2>
           </motion.div>
 
           <motion.div
@@ -363,6 +251,38 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ─── THREE PILLARS ─── */}
+      <section className="py-16 px-4 bg-[#0d1117]">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={staggerContainer}
+            className="text-center mb-14"
+          >
+            <motion.p variants={fadeUp} className="section-label mb-3">Why SuperMetallix</motion.p>
+            <motion.h2 variants={fadeUp} className="section-heading">Three Pillars of Value</motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-6"
+          >
+            {pillars.map((p) => (
+              <motion.div key={p.title} variants={fadeUp} className="card group">
+                <div className="mb-4 p-3 rounded-lg bg-white/5 w-fit">{p.icon}</div>
+                <h3 className="text-xl font-bold text-white mb-3">{p.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{p.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* ─── RESEARCH TEASER ─── */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-0 overflow-hidden rounded-2xl border border-[#1f2937]">
@@ -382,16 +302,14 @@ export default function LandingPage() {
             variants={staggerContainer}
             className="bg-[#0d1117] p-10 lg:p-14 flex flex-col justify-center"
           >
-            <motion.p variants={fadeUp} className="section-label mb-4">
-              The Science
-            </motion.p>
+            <motion.p variants={fadeUp} className="section-label mb-4">The Science</motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-white mb-5">
               15+ Years of UCLA Research
             </motion.h2>
             <motion.p variants={fadeUp} className="text-gray-400 mb-8 leading-relaxed">
               Dr. Richard Kaner&rsquo;s laboratory at UCLA has spent over 15 years pioneering
-              superhard metal borides. Tetride™ is the result — a patented formulation that
-              overcomes the brittleness problem that limited earlier materials.
+              superhard metal borides. Tetride™ is the result, a patented formulation that overcomes
+              the brittleness problem that limited earlier materials.
             </motion.p>
             <motion.div variants={fadeUp}>
               <Link href="/research" className="btn-primary w-fit">
@@ -420,9 +338,7 @@ export default function LandingPage() {
           variants={staggerContainer}
           className="relative z-10 text-center max-w-3xl mx-auto"
         >
-          <motion.p variants={fadeUp} className="section-label mb-4">
-            Tetride™
-          </motion.p>
+          <motion.p variants={fadeUp} className="section-label mb-4">Tetride™</motion.p>
           <motion.h2 variants={fadeUp} className="section-heading mb-6">
             Next-Generation Superhard Materials
           </motion.h2>
@@ -448,11 +364,9 @@ export default function LandingPage() {
             variants={staggerContainer}
             className="text-center mb-12"
           >
-            <motion.p variants={fadeUp} className="section-label mb-3">
-              The Team
-            </motion.p>
+            <motion.p variants={fadeUp} className="section-label mb-3">The Team</motion.p>
             <motion.h2 variants={fadeUp} className="section-heading">
-              World-Class Scientists & Operators
+              World-Class Scientists &amp; Operators
             </motion.h2>
           </motion.div>
 
@@ -464,11 +378,7 @@ export default function LandingPage() {
             className="flex flex-wrap justify-center gap-8 mb-12"
           >
             {teamMembers.map((member) => (
-              <motion.div
-                key={member.name}
-                variants={fadeUp}
-                className="flex flex-col items-center gap-3 group"
-              >
+              <motion.div key={member.name} variants={fadeUp} className="flex flex-col items-center gap-3 group">
                 <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-[#1f2937] group-hover:border-blue-500/50 transition-colors">
                   <Image src={member.img} alt={member.name} fill className="object-cover" />
                 </div>
@@ -497,16 +407,13 @@ export default function LandingPage() {
           variants={staggerContainer}
           className="max-w-3xl mx-auto text-center border border-blue-500/20 rounded-2xl p-12 bg-blue-500/5 glow-blue"
         >
-          <motion.p variants={fadeUp} className="section-label mb-4">
-            Investor Relations
-          </motion.p>
+          <motion.p variants={fadeUp} className="section-label mb-4">Investor Relations</motion.p>
           <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-white mb-5">
             Ready to Back the Future of Materials
           </motion.h2>
           <motion.p variants={fadeUp} className="text-gray-400 mb-8">
-            SuperMetallix is seeking strategic investment partners to accelerate
-            Tetride™&rsquo;s path to market. Patented technology, proven science, massive
-            addressable market.
+            SuperMetallix is seeking strategic investment partners to accelerate Tetride™ to market.
+            Patented technology, proven science, massive addressable market.
           </motion.p>
           <motion.div variants={fadeUp}>
             <Link href="/contact?purpose=investment" className="btn-primary text-base px-8 py-4">
@@ -515,6 +422,7 @@ export default function LandingPage() {
           </motion.div>
         </motion.div>
       </section>
+
     </div>
   );
 }
