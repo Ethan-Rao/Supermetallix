@@ -19,19 +19,19 @@ const teamMembers = [
   {
     name: "Dr. Richard Kaner",
     title: "Co-founder & Chief Scientific Officer",
-    img: "/images/Richard-Kaner-thumb.jpg",
+    img: "/images/Richard-Kaner-2.jpg",
     bio: "Distinguished Professor at UCLA and world-renowned materials scientist. Dr. Kaner has spent 15+ years pioneering superhard metal boride research at the Kaner Laboratory, laying the scientific foundation for Tetride™.",
   },
   {
     name: "Jack Kavanaugh",
     title: "Co-founder & CEO",
-    img: "/images/Jack-Kavanaugh-thumb.jpg",
+    img: "/images/Jack-Kavanaugh-2.jpg",
     bio: "Serial entrepreneur and technology commercialization specialist. Jack brings executive leadership experience and a track record of taking deep-tech innovations from lab to market.",
   },
   {
     name: "Kesh Keshavan",
     title: "Team",
-    img: "/images/Kesh-Keshavan-thumb.jpg",
+    img: "/images/Kesh-Keshavan-2.jpg",
     bio: "Experienced operator with expertise in materials science applications and industrial technology deployment. Kesh drives strategic partnerships and market development.",
   },
   {
@@ -43,7 +43,7 @@ const teamMembers = [
   {
     name: "Robert Snukal",
     title: "Team",
-    img: "/images/Robert-Snukal-thumb.jpg",
+    img: "/images/Robert-Snukal.jpg",
     bio: "Finance and business development professional. Robert manages investor relations, capital strategy, and corporate development for SuperMetallix.",
   },
 ];
@@ -106,17 +106,20 @@ export default function AboutPage() {
             <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-white mb-8">
               From Lab to Market
             </motion.h2>
-            <motion.div variants={fadeUp} className="space-y-5 text-gray-400 leading-relaxed text-lg">
+            <motion.div
+              variants={fadeUp}
+              className="space-y-5 text-gray-400 leading-relaxed text-lg"
+            >
               <p>
                 SuperMetallix was born from a question Dr. Richard Kaner&rsquo;s laboratory at UCLA
                 has been asking for over 15 years: can we engineer a material as hard as diamond, at
                 a fraction of the cost, and synthesized at industrial scale?
               </p>
               <p>
-                The answer is Tetride™. A patented superhard metal boride formulation that achieves
-                Vickers hardness approaching 100 GPa — matching or exceeding the hardness of
-                diamond — while remaining manufacturable at scale through conventional synthesis
-                methods.
+                The answer is Tetride™. A patented superhard metal boride formulation that is harder
+                than diamond — and unlike diamond, machinable with standard industry tooling. This
+                makes superhard material performance economically viable for mass industrial
+                applications for the first time.
               </p>
               <p>
                 SuperMetallix, Inc. was established to commercialize this breakthrough, licensing the
@@ -147,9 +150,7 @@ export default function AboutPage() {
           </motion.div>
 
           <div className="relative">
-            {/* Vertical line */}
             <div className="absolute left-8 top-0 bottom-0 w-px bg-[#1f2937]" />
-
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -163,12 +164,13 @@ export default function AboutPage() {
                   variants={fadeUp}
                   className="flex items-start gap-6 pl-4"
                 >
-                  {/* Dot */}
                   <div className="relative flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center z-10">
                     <div className="w-2 h-2 rounded-full bg-blue-400" />
                   </div>
                   <div className="pt-1 pb-4">
-                    <span className="text-blue-400 font-bold text-sm tracking-wider">{item.year}</span>
+                    <span className="text-blue-400 font-bold text-sm tracking-wider">
+                      {item.year}
+                    </span>
                     <p className="text-gray-300 mt-1">{item.event}</p>
                   </div>
                 </motion.div>
@@ -204,22 +206,27 @@ export default function AboutPage() {
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {teamMembers.map((member) => (
-              <motion.div key={member.name} variants={fadeUp} className="card flex flex-col gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#1f2937] flex-shrink-0">
-                    <Image
-                      src={member.img}
-                      alt={member.name}
-                      fill
-                      className="object-cover object-top"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white font-bold">{member.name}</p>
-                    <p className="text-blue-400 text-sm">{member.title}</p>
-                  </div>
+              <motion.div
+                key={member.name}
+                variants={fadeUp}
+                className="card overflow-hidden flex flex-col gap-0 p-0"
+              >
+                {/* Full-width rectangular photo */}
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src={member.img}
+                    alt={member.name}
+                    fill
+                    className="object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/80 to-transparent" />
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed">{member.bio}</p>
+                {/* Name + title + bio */}
+                <div className="p-6 flex flex-col gap-2">
+                  <p className="text-white font-bold text-lg leading-tight">{member.name}</p>
+                  <p className="text-blue-400 text-sm">{member.title}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed mt-1">{member.bio}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -251,26 +258,28 @@ export default function AboutPage() {
             variants={staggerContainer}
             className="flex justify-center"
           >
-            <motion.div variants={fadeUp} className="card max-w-sm w-full flex flex-col gap-4">
-              <div className="flex items-center gap-4">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[#1f2937] flex-shrink-0">
-                  <Image
-                    src="/images/SelimSenkan.png"
-                    alt="Prof. Selim Senkan"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div>
-                  <p className="text-white font-bold">Prof. Selim Senkan</p>
-                  <p className="text-cyan-400 text-sm">Scientific Advisor</p>
-                </div>
+            <motion.div
+              variants={fadeUp}
+              className="card overflow-hidden flex flex-col gap-0 p-0 max-w-sm w-full"
+            >
+              <div className="relative w-full h-48 overflow-hidden">
+                <Image
+                  src="/images/SelimSenkan.png"
+                  alt="Prof. Selim Senkan"
+                  fill
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/80 to-transparent" />
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Distinguished Professor of Chemical Engineering at UCLA. Prof. Senkan brings
-                expertise in catalysis, reaction engineering, and materials processing to the
-                SuperMetallix scientific advisory board.
-              </p>
+              <div className="p-6 flex flex-col gap-2">
+                <p className="text-white font-bold text-lg">Prof. Selim Senkan</p>
+                <p className="text-cyan-400 text-sm">Scientific Advisor</p>
+                <p className="text-gray-400 text-sm leading-relaxed mt-1">
+                  Distinguished Professor of Chemical Engineering at UCLA. Prof. Senkan brings
+                  expertise in catalysis, reaction engineering, and materials processing to the
+                  SuperMetallix scientific advisory board.
+                </p>
+              </div>
             </motion.div>
           </motion.div>
         </div>

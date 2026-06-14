@@ -16,11 +16,11 @@ const staggerContainer = {
 };
 
 const properties = [
-  { label: "Hardness (Vickers)", value: "~100 GPa", highlight: true },
-  { label: "Melting Point", value: "Very high (refractory)", highlight: false },
-  { label: "Cost vs. Diamond", value: "Significantly lower", highlight: false },
+  { label: "Hardness", value: "Harder than diamond", highlight: true },
+  { label: "Machinability", value: "EDM & standard tooling compatible", highlight: false },
+  { label: "Cost vs. Diamond", value: "Fraction of the cost", highlight: false },
+  { label: "Melting Point", value: "Extreme — refractory class", highlight: false },
   { label: "Scalability", value: "Industrial synthesis ready", highlight: false },
-  { label: "Origin", value: "UCLA Kaner Lab patented", highlight: false },
   { label: "Form Factor", value: "Powder, composite, coating", highlight: false },
 ];
 
@@ -51,21 +51,21 @@ const applications = [
     title: "Radiation Shielding",
     description:
       "Metal boride crystal structures offer favorable neutron absorption properties, making Tetride™ a candidate for next-generation shielding applications.",
-    img: null,
+    img: "/images/research.jpg",
   },
   {
     icon: <Atom className="w-8 h-8 text-green-400" />,
     title: "Scratch-Resistant Surfaces",
     description:
       "Consumer electronics, optical components, and high-value substrates benefit from Tetride™ surface treatments that resist scratching at the atomic level.",
-    img: null,
+    img: "/images/detail_2.jpg",
   },
   {
     icon: <Wrench className="w-8 h-8 text-red-400" />,
     title: "Composites & Structural Materials",
     description:
       "Tetride™ as a reinforcing phase in metal and ceramic matrix composites — improving hardness, strength, and thermal stability of structural components.",
-    img: null,
+    img: "/images/powders3.jpg",
   },
 ];
 
@@ -120,14 +120,14 @@ export default function ProductsPage() {
             <motion.div variants={fadeUp} className="space-y-4 text-gray-400 leading-relaxed">
               <p>
                 Tetride™ is SuperMetallix&rsquo;s proprietary line of superhard metal boride
-                formulations, developed through 15+ years of research at UCLA. The material achieves
-                Vickers hardness approaching 100 GPa — comparable to diamond — while being
-                synthesized through scalable, cost-effective processes.
+                formulations, developed through 15+ years of research at UCLA. The material is
+                harder than diamond — and unlike diamond, it can be shaped with standard industry
+                machine tools, making it practical for mass industrial applications.
               </p>
               <p>
                 Unlike natural diamond or CVD synthetic diamond, Tetride™ can be manufactured at
                 scale, in complex geometries, and at a fraction of the cost — making superhard
-                material performance economically viable for mass industrial applications.
+                material performance economically viable for the first time.
               </p>
             </motion.div>
           </motion.div>
@@ -139,7 +139,10 @@ export default function ProductsPage() {
             viewport={{ once: true }}
             variants={staggerContainer}
           >
-            <motion.div variants={fadeUp} className="rounded-2xl border border-[#1f2937] overflow-hidden">
+            <motion.div
+              variants={fadeUp}
+              className="rounded-2xl border border-[#1f2937] overflow-hidden"
+            >
               <div className="bg-[#111827] px-6 py-4 border-b border-[#1f2937]">
                 <h3 className="text-white font-bold">Key Properties</h3>
               </div>
@@ -152,7 +155,7 @@ export default function ProductsPage() {
                     <span className="text-gray-400 text-sm">{prop.label}</span>
                     <span
                       className={`font-semibold text-sm ${
-                        prop.highlight ? "gradient-text text-lg" : "text-white"
+                        prop.highlight ? "gradient-text text-base" : "text-white"
                       }`}
                     >
                       {prop.value}
@@ -192,12 +195,10 @@ export default function ProductsPage() {
           >
             {applications.map((app) => (
               <motion.div key={app.title} variants={fadeUp} className="card overflow-hidden">
-                {app.img && (
-                  <div className="relative h-36 -mx-6 -mt-6 mb-5 overflow-hidden">
-                    <Image src={app.img} alt={app.title} fill className="object-cover opacity-70" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#111827]" />
-                  </div>
-                )}
+                <div className="relative h-36 -mx-6 -mt-6 mb-5 overflow-hidden">
+                  <Image src={app.img} alt={app.title} fill className="object-cover opacity-70" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#111827]" />
+                </div>
                 <div className="mb-3 p-2.5 rounded-lg bg-white/5 w-fit">{app.icon}</div>
                 <h3 className="text-white font-bold text-lg mb-2">{app.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{app.description}</p>
@@ -229,7 +230,7 @@ export default function ProductsPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl overflow-hidden border border-[#1f2937] p-6 bg-[#111827]"
+            className="rounded-2xl overflow-hidden border border-gray-200 p-6 bg-white shadow-lg"
           >
             <Image
               src="/images/hardness-chart.png"
@@ -238,9 +239,9 @@ export default function ProductsPage() {
               height={500}
               className="w-full h-auto"
             />
-            <p className="text-gray-500 text-sm text-center mt-3">
-              Tetride™ vs. diamond, cubic boron nitride, tungsten carbide, and conventional tool
-              steels — Vickers hardness scale.
+            <p className="text-gray-600 text-sm text-center mt-3">
+              Tetride™ fills the performance gap between today&rsquo;s tungsten carbide cutting
+              tools and diamond — while remaining machinable with standard industry equipment.
             </p>
           </motion.div>
         </div>
@@ -262,8 +263,8 @@ export default function ProductsPage() {
               Inquire About Tetride™
             </motion.h2>
             <motion.p variants={fadeUp} className="text-gray-400 mb-8">
-              Whether you&rsquo;re exploring licensing, a material supply agreement, or an investment
-              partnership — we&rsquo;d like to hear from you.
+              Whether you&rsquo;re exploring licensing, a material supply agreement, or an
+              investment partnership — we&rsquo;d like to hear from you.
             </motion.p>
             <motion.div variants={fadeUp}>
               <Link href="/contact" className="btn-primary text-base px-8 py-4">

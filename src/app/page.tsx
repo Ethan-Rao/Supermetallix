@@ -4,21 +4,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { ArrowRight, Atom, DollarSign, Globe, ChevronDown } from "lucide-react";
+import { ArrowRight, Atom, DollarSign, Globe, ChevronDown, Play } from "lucide-react";
 
-// Fade-up animation variant
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
 
-// Stagger container
 const staggerContainer = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
 };
 
-// Animated counter hook
+// Static particles — avoids hydration mismatch from Math.random()
+const PARTICLES = [
+  { w: 2, h: 2, l: 15, t: 22, d: 6,   dur: 5.2 },
+  { w: 3, h: 3, l: 33, t: 45, d: 1,   dur: 4.1 },
+  { w: 2, h: 2, l: 58, t: 12, d: 3,   dur: 6.3 },
+  { w: 1, h: 1, l: 74, t: 67, d: 0,   dur: 3.8 },
+  { w: 3, h: 3, l: 82, t: 38, d: 2,   dur: 5.7 },
+  { w: 2, h: 2, l: 7,  t: 80, d: 4,   dur: 4.5 },
+  { w: 1, h: 1, l: 44, t: 55, d: 1.5, dur: 7.1 },
+  { w: 2, h: 2, l: 91, t: 28, d: 2.5, dur: 3.4 },
+  { w: 3, h: 3, l: 26, t: 72, d: 0.5, dur: 6.8 },
+  { w: 1, h: 1, l: 63, t: 90, d: 3.5, dur: 4.9 },
+];
+
 function useCountUp(target: number, duration = 2000, inView: boolean) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -56,9 +67,7 @@ function StatItem({
   return (
     <div ref={ref} className="text-center px-6">
       <div className="text-4xl lg:text-5xl font-bold text-white font-display mb-1">
-        {prefix}
-        {count}
-        {suffix}
+        {prefix}{count}{suffix}
       </div>
       <div className="text-sm text-gray-400 uppercase tracking-widest">{label}</div>
     </div>
@@ -82,7 +91,7 @@ const pillars = [
     icon: <Globe className="w-8 h-8 text-amber-400" />,
     title: "Market",
     description:
-      "Targeting high-value markets: precision cutting tools, industrial abrasives, wear-resistant coatings, and radiation shielding.",
+      "The global cutting tools and superabrasives market exceeds $23B annually. Tetride™ targets the performance tier between tungsten carbide and diamond — a segment with no cost-competitive incumbent.",
   },
 ];
 
@@ -94,11 +103,18 @@ const teamMembers = [
   { name: "Robert Snukal", title: "Team", img: "/images/Robert-Snukal-thumb.jpg" },
 ];
 
+const galleryItems = [
+  { src: "/images/detail.jpg", label: "Material Detail" },
+  { src: "/images/powders2.jpg", label: "Powder Form" },
+  { src: "/images/cutting-wheel-and-drill-bits3.png", label: "Cutting Tools" },
+  { src: "/images/malcolm-cutting-machine2.jpg", label: "Industrial Application" },
+];
+
 export default function LandingPage() {
   return (
     <div className="bg-[#050810]">
       {/* ─── HERO ─── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[78vh] flex items-center justify-center overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -111,30 +127,26 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#050810]/60 via-[#050810]/40 to-[#050810]" />
         </div>
 
-        {/* Particle dots */}
+        {/* Static particle dots */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          {[...Array(40)].map((_, i) => (
+          {PARTICLES.map((p, i) => (
             <div
               key={i}
               className="absolute rounded-full bg-blue-400/20"
               style={{
-                width: `${Math.random() * 3 + 1}px`,
-                height: `${Math.random() * 3 + 1}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 4}s`,
+                width: `${p.w}px`,
+                height: `${p.h}px`,
+                left: `${p.l}%`,
+                top: `${p.t}%`,
+                animation: `float ${p.dur}s ease-in-out infinite`,
+                animationDelay: `${p.d}s`,
               }}
             />
           ))}
         </div>
 
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-          >
+          <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
             {/* Logo */}
             <motion.div variants={fadeUp} className="flex justify-center mb-8">
               <Image
@@ -156,13 +168,16 @@ export default function LandingPage() {
               <span className="gradient-text">Hardest Materials</span>
             </motion.h1>
 
-            {/* Subheadline */}
+            {/* Subtitle — plain language */}
             <motion.p
               variants={fadeUp}
-              className="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
+              className="text-lg sm:text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed"
             >
-              Tetride™ — patented superhard metal boride formulations with hardness approaching
-              diamond.
+              After 15 years of experiments, SuperMetallix has engineered a material hard enough to
+              scratch diamond — and unlike diamond, it can be cut and shaped using the same standard
+              machine tools already used by industry. This unlocks a new class of cutting tools,
+              drill bits, and wear surfaces that fills the performance gap between today&rsquo;s
+              tungsten carbide and diamond.
             </motion.p>
 
             {/* CTAs */}
@@ -173,6 +188,16 @@ export default function LandingPage() {
               <Link href="/contact" className="btn-secondary text-base px-8 py-4">
                 Contact Us
               </Link>
+            </motion.div>
+
+            {/* Video placeholder */}
+            <motion.div variants={fadeUp} className="mt-10 w-full max-w-2xl mx-auto">
+              <div className="relative aspect-video rounded-xl border border-white/10 bg-black/30 backdrop-blur-sm flex flex-col items-center justify-center gap-3 cursor-pointer group hover:border-blue-500/40 transition-colors">
+                <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                  <Play className="w-6 h-6 text-white ml-1" />
+                </div>
+                <p className="text-white/50 text-sm tracking-wider uppercase">Video Coming Soon</p>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -193,20 +218,20 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x divide-[#1f2937]">
           <StatItem value={15} suffix="+" label="Years of R&D" />
           <div className="text-center px-6">
-            <div className="text-4xl lg:text-5xl font-bold text-white font-display mb-1">
-              Patented
+            <div className="text-3xl lg:text-4xl font-bold text-white font-display mb-1 leading-tight">
+              Scratches<br />Diamond
             </div>
-            <div className="text-sm text-gray-400 uppercase tracking-widest">Technology</div>
+            <div className="text-sm text-gray-400 uppercase tracking-widest">Proven Hardness</div>
           </div>
           <div className="text-center px-6">
             <div className="text-4xl lg:text-5xl font-bold text-white font-display mb-1">UCLA</div>
             <div className="text-sm text-gray-400 uppercase tracking-widest">Origin</div>
           </div>
           <div className="text-center px-6">
-            <div className="text-4xl lg:text-5xl font-bold gradient-text font-display mb-1">
-              ~100 GPa
+            <div className="text-3xl lg:text-4xl font-bold gradient-text font-display mb-1 leading-tight">
+              Standard<br />Tooling
             </div>
-            <div className="text-sm text-gray-400 uppercase tracking-widest">Hardness</div>
+            <div className="text-sm text-gray-400 uppercase tracking-widest">Machine-Tool Ready</div>
           </div>
         </div>
       </section>
@@ -234,6 +259,24 @@ export default function LandingPage() {
             at UCLA over 15+ years, it&rsquo;s now ready for commercial scale. SuperMetallix is the
             company bringing it to market.
           </motion.p>
+
+          {/* Hardness chart */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-12 rounded-2xl overflow-hidden border border-gray-200 bg-white p-6 shadow-xl max-w-4xl mx-auto"
+          >
+            <Image
+              src="/images/hardness-chart.png"
+              alt="Hardness comparison chart"
+              width={900}
+              height={500}
+              className="w-full h-auto"
+            />
+            <p className="text-gray-500 text-sm text-center mt-3">
+              Tetride™ fills the performance gap between today&rsquo;s tungsten carbide cutting
+              tools and diamond — while remaining machinable with standard industry equipment.
+            </p>
+          </motion.div>
         </motion.div>
       </section>
 
@@ -267,6 +310,53 @@ export default function LandingPage() {
                 <div className="mb-4 p-3 rounded-lg bg-white/5 w-fit">{p.icon}</div>
                 <h3 className="text-xl font-bold text-white mb-3">{p.title}</h3>
                 <p className="text-gray-400 leading-relaxed">{p.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── MATERIALS GALLERY ─── */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-10"
+          >
+            <motion.p variants={fadeUp} className="section-label mb-3">
+              The Material
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="section-heading">
+              Tetride™ in Every Form
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3"
+          >
+            {galleryItems.map((item) => (
+              <motion.div
+                key={item.src}
+                variants={fadeUp}
+                className="relative aspect-square rounded-xl overflow-hidden group"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.label}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <p className="absolute bottom-3 left-3 text-white text-xs font-semibold tracking-wider uppercase">
+                  {item.label}
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -380,12 +470,7 @@ export default function LandingPage() {
                 className="flex flex-col items-center gap-3 group"
               >
                 <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-[#1f2937] group-hover:border-blue-500/50 transition-colors">
-                  <Image
-                    src={member.img}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                  />
+                  <Image src={member.img} alt={member.name} fill className="object-cover" />
                 </div>
                 <div className="text-center">
                   <p className="text-white font-semibold text-sm">{member.name}</p>

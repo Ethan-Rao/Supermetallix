@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, FlaskConical, Layers, Shield, Wrench, Zap } from "lucide-react";
+import { ArrowRight, FlaskConical, Layers, Shield, Wrench, Zap, BookOpen } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -83,7 +83,7 @@ export default function ResearchPage() {
 
       {/* ─── ORIGIN STORY ─── */}
       <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-start">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -117,14 +117,15 @@ export default function ResearchPage() {
             </motion.div>
           </motion.div>
 
+          {/* Right column: Kaner photo + lab photo */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="flex flex-col gap-4"
           >
-            <div className="relative h-96 rounded-2xl overflow-hidden border border-[#1f2937]">
+            <div className="relative h-80 rounded-2xl overflow-hidden border border-[#1f2937]">
               <Image
                 src="/images/Richard-Kaner-2.jpg"
                 alt="Dr. Richard Kaner"
@@ -135,6 +136,22 @@ export default function ResearchPage() {
               <div className="absolute bottom-6 left-6">
                 <p className="text-white font-bold text-lg">Dr. Richard Kaner</p>
                 <p className="text-blue-400 text-sm">UCLA Professor & Co-founder, CSO</p>
+              </div>
+            </div>
+
+            {/* Secondary lab image */}
+            <div className="relative h-52 rounded-2xl overflow-hidden border border-[#1f2937]">
+              <Image
+                src="/images/research2.jpg"
+                alt="Kaner Laboratory research"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050810]/60 to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <p className="text-white/70 text-xs uppercase tracking-wider">
+                  Kaner Laboratory, UCLA
+                </p>
               </div>
             </div>
           </motion.div>
@@ -158,8 +175,8 @@ export default function ResearchPage() {
               Hardness Comparison
             </motion.h2>
             <motion.p variants={fadeUp} className="section-subheading mx-auto">
-              Vickers hardness scale positioning Tetride™ against leading industrial abrasives and
-              superhard materials.
+              How Tetride™ stacks up against the materials currently used in industrial cutting
+              tools and abrasives.
             </motion.p>
           </motion.div>
 
@@ -168,7 +185,7 @@ export default function ResearchPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative rounded-2xl overflow-hidden border border-[#1f2937] p-6 bg-[#111827]"
+            className="relative rounded-2xl overflow-hidden border border-gray-200 p-6 bg-white shadow-lg"
           >
             <Image
               src="/images/hardness-chart.png"
@@ -177,9 +194,9 @@ export default function ResearchPage() {
               height={500}
               className="w-full h-auto"
             />
-            <p className="text-gray-500 text-sm text-center mt-4">
-              Tetride™ achieves ~100 GPa Vickers hardness — approaching diamond, far exceeding
-              cubic boron nitride and tungsten carbide.
+            <p className="text-gray-600 text-sm text-center mt-4">
+              Tetride™ fills the performance gap between today&rsquo;s tungsten carbide cutting
+              tools and diamond — while remaining machinable with standard industry equipment.
             </p>
           </motion.div>
         </div>
@@ -221,46 +238,146 @@ export default function ResearchPage() {
         </div>
       </section>
 
-      {/* ─── PUBLICATIONS & IP ─── */}
+      {/* ─── PATENTS & PUBLICATIONS ─── */}
       <section className="py-20 px-4 bg-[#0d1117]">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="text-center mb-12"
+            className="text-center mb-14"
           >
             <motion.p variants={fadeUp} className="section-label mb-3">
               Intellectual Property
             </motion.p>
             <motion.h2 variants={fadeUp} className="section-heading">
-              Publications & Patents
+              Patents & Publications
             </motion.h2>
+            <motion.p variants={fadeUp} className="section-subheading mx-auto mt-4">
+              15+ years of peer-reviewed research and a growing international patent portfolio
+              protect the core Tetride™ technology.
+            </motion.p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="border border-amber-500/30 rounded-2xl p-8 bg-amber-500/5"
-          >
-            <div className="flex items-start gap-4">
-              <div className="text-amber-400 text-3xl">⚡</div>
-              <div>
-                <h3 className="text-white font-bold text-xl mb-3">Patented Technology</h3>
-                <p className="text-gray-400 leading-relaxed mb-4">
-                  SuperMetallix holds multiple issued U.S. and international patents covering
-                  Tetride™ formulations, synthesis methods, and applications. The patent portfolio
-                  provides broad protection for the core technology and key use cases.
-                </p>
-                <p className="text-gray-500 text-sm italic">
-                  Peer-reviewed publications from the UCLA Kaner Laboratory document the scientific
-                  foundation. Contact us for a full IP summary and publication list.
-                </p>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Patents Column */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="card"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 rounded-lg bg-amber-500/10">
+                  <Shield className="w-5 h-5 text-amber-400" />
+                </div>
+                <h3 className="text-white font-bold text-xl">Patent Portfolio</h3>
               </div>
-            </div>
-          </motion.div>
+              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                SuperMetallix holds exclusive licensing rights to UCLA&rsquo;s issued and pending
+                patents covering Tetride™ formulations, synthesis processes, and commercial
+                applications. The portfolio provides broad protection across the core technology and
+                key markets.
+              </p>
+              <div className="space-y-3">
+                {[
+                  {
+                    title: "Superhard Metal Boride Formulations",
+                    sub: "U.S. Patent — Core Tetride™ composition claims",
+                  },
+                  {
+                    title: "Synthesis & Processing Methods",
+                    sub: "U.S. Patent — Scalable industrial production routes",
+                  },
+                  {
+                    title: "Cutting Tool & Abrasive Applications",
+                    sub: "U.S. Patent — Industrial use claims",
+                  },
+                  {
+                    title: "International Patent Portfolio",
+                    sub: "PCT applications — key international markets",
+                  },
+                ].map((p) => (
+                  <div key={p.title} className="flex items-start gap-3 p-3 rounded-lg bg-white/5">
+                    <div className="w-2 h-2 rounded-full bg-amber-400 mt-1.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-white text-sm font-semibold">{p.title}</p>
+                      <p className="text-gray-500 text-xs mt-0.5">{p.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-gray-600 text-xs mt-5 italic">
+                Full patent numbers and filing details available upon request under NDA.
+              </p>
+            </motion.div>
+
+            {/* Publications Column */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="card"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 rounded-lg bg-blue-500/10">
+                  <BookOpen className="w-5 h-5 text-blue-400" />
+                </div>
+                <h3 className="text-white font-bold text-xl">Key Publications</h3>
+              </div>
+              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                The scientific foundation for Tetride™ is documented in peer-reviewed journals
+                including <em>Science</em>, <em>PNAS</em>, and the{" "}
+                <em>Journal of the American Chemical Society</em>.
+              </p>
+              <div className="space-y-4">
+                {[
+                  {
+                    title: "Designing Superhard Materials",
+                    journal: "Science, 2005 — Kaner et al.",
+                    desc: "Foundational framework for engineering hardness at the atomic level.",
+                  },
+                  {
+                    title: "Osmium Diboride, An Ultra-Incompressible, Hard Material",
+                    journal: "J. Am. Chem. Soc., 2005 — Cumberland et al.",
+                    desc: "First demonstration of transition metal borides as superhard materials.",
+                  },
+                  {
+                    title:
+                      "Synthesis of Ultra-Incompressible Superhard Rhenium Diboride at Ambient Pressure",
+                    journal: "Science, 2007 — Chung et al.",
+                    desc: "Landmark paper on ambient-pressure synthesis of superhard ReB₂.",
+                  },
+                  {
+                    title: "Tungsten Tetraboride, an Inexpensive Superhard Material",
+                    journal: "PNAS, 2011 — Mohammadi et al.",
+                    desc: "Identified low-cost superhard boride compound with exceptional properties.",
+                  },
+                  {
+                    title: "Rediscovering the Crystal Chemistry of Borides",
+                    journal: "Advanced Materials, 2017 — Akopov et al.",
+                    desc: "Comprehensive review of boride crystal structures for superhard applications.",
+                  },
+                ].map((pub) => (
+                  <div
+                    key={pub.title}
+                    className="p-3 rounded-lg bg-white/5 border border-white/5"
+                  >
+                    <p className="text-white text-sm font-semibold leading-snug">{pub.title}</p>
+                    <p className="text-blue-400 text-xs mt-1">{pub.journal}</p>
+                    <p className="text-gray-500 text-xs mt-1">{pub.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-gray-600 text-xs mt-5 italic">
+                30+ peer-reviewed publications from the UCLA Kaner Laboratory. Full list available
+                upon request.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
