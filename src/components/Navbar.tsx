@@ -44,7 +44,7 @@ export default function Navbar() {
             <Link href="/" className="flex-shrink-0">
               <Image
                 src="/images/SuperMetalix-Logo-Main-white.png"
-                alt="SuperMetallix"
+                alt="SuperMetalix"
                 width={160}
                 height={50}
                 className="h-8 lg:h-10 w-auto"
@@ -73,16 +73,6 @@ export default function Navbar() {
                 </Link>
               ))}
             </nav>
-
-            {/* CTA Button */}
-            <div className="hidden lg:block">
-              <Link
-                href="/contact?purpose=investment"
-                className="inline-flex items-center px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25"
-              >
-                Investor Inquiry
-              </Link>
-            </div>
 
             {/* Mobile hamburger */}
             <button
@@ -127,14 +117,6 @@ export default function Navbar() {
                 </Link>
               ))}
             </nav>
-            <div className="mt-8">
-              <Link
-                href="/contact?purpose=investment"
-                className="block w-full text-center px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg transition-colors"
-              >
-                Investor Inquiry
-              </Link>
-            </div>
           </div>
         </div>
       </div>

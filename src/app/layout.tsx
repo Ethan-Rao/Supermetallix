@@ -17,15 +17,15 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "SuperMetallix — Superhard Metal Boride Materials",
+  title: "SuperMetalix — Superhard Metal Boride Materials",
   description:
-    "SuperMetallix develops Tetride™, a patented superhard material with hardness approaching diamond. Commercializing 15+ years of UCLA research for cutting tools, abrasives, and more.",
+    "SuperMetalix develops Tetride®, a patented superhard material with hardness approaching diamond. Commercializing 15+ years of UCLA research for cutting tools, abrasives, and more.",
   openGraph: {
-    title: "SuperMetallix — Engineering the World's Hardest Materials",
+    title: "SuperMetalix — Commercializing the World's Hardest Metal",
     description:
-      "Tetride™ superhard metal boride formulations. Patented. Scalable. Investment-ready.",
-    url: "https://supermetallix.com",
-    siteName: "SuperMetallix",
+      "Tetride® superhard metal boride formulations. Patented. Scalable. Investment-ready.",
+    url: "https://supermetalix.com",
+    siteName: "SuperMetalix",
   },
 };
 

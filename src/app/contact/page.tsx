@@ -26,8 +26,7 @@ type FormData = {
 };
 
 function ContactForm() {
-  const searchParams = useSearchParams();
-  const defaultPurpose = searchParams.get("purpose") === "investment" ? "investment" : "general";
+  useSearchParams(); // consumed for routing context
 
   const {
     register,
@@ -35,7 +34,7 @@ function ContactForm() {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<FormData>({
-    defaultValues: { purpose: defaultPurpose },
+    defaultValues: { purpose: "general" },
   });
 
   const [success, setSuccess] = useState(false);
@@ -77,7 +76,7 @@ function ContactForm() {
             Get in Touch
           </motion.h1>
           <motion.p variants={fadeUp} className="section-subheading mx-auto text-gray-300">
-            Interested in licensing, partnership, or investment? We&rsquo;d love to hear from you.
+            Interested in further information or discussion? We&rsquo;d love to hear from you.
           </motion.p>
         </motion.div>
       </section>
@@ -93,17 +92,15 @@ function ContactForm() {
             variants={staggerContainer}
             className="lg:col-span-2 space-y-8"
           >
-            {/* Logo */}
             <motion.div variants={fadeUp}>
               <Image
                 src="/images/SuperMetalix-Logo-Main-white.png"
-                alt="SuperMetallix"
+                alt="SuperMetalix"
                 width={160}
                 height={50}
                 className="h-8 w-auto mb-6"
               />
               <p className="text-gray-400 leading-relaxed">
-                Interested in licensing, partnership, or investment in Tetride™ superhard materials?
                 We&rsquo;re ready to talk.
               </p>
             </motion.div>
@@ -116,10 +113,10 @@ function ContactForm() {
                 <div>
                   <p className="text-white font-semibold text-sm mb-0.5">Email</p>
                   <a
-                    href="mailto:info@supermetallix.com"
+                    href="mailto:info@supermetalix.com"
                     className="text-gray-400 hover:text-blue-400 transition-colors text-sm"
                   >
-                    info@supermetallix.com
+                    info@supermetalix.com
                   </a>
                 </div>
               </div>
@@ -129,24 +126,11 @@ function ContactForm() {
                   <MapPin className="w-5 h-5 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm mb-0.5">Location</p>
-                  <p className="text-gray-400 text-sm">Los Angeles, CA</p>
+                  <p className="text-white font-semibold text-sm mb-0.5">Locations</p>
+                  <p className="text-gray-400 text-sm">Corporate: Sunny Isles Beach, FL 33160</p>
+                  <p className="text-gray-400 text-sm mt-1">Pilot Plant: Chico, CA 95928</p>
                 </div>
               </div>
-            </motion.div>
-
-            {/* Info cards */}
-            <motion.div variants={fadeUp} className="space-y-4">
-              {[
-                { title: "Investment Inquiry", desc: "Discuss Series A and strategic investment opportunities in Tetride™." },
-                { title: "Licensing", desc: "License Tetride™ technology for your cutting tools, abrasives, or coatings application." },
-                { title: "Partnership", desc: "Explore R&D collaboration, joint development, or supply agreements." },
-              ].map((item) => (
-                <div key={item.title} className="p-4 rounded-xl border border-[#1f2937] bg-[#111827]">
-                  <p className="text-white font-semibold text-sm mb-1">{item.title}</p>
-                  <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
             </motion.div>
           </motion.div>
 
@@ -167,9 +151,7 @@ function ContactForm() {
                 >
                   <CheckCircle className="w-16 h-16 text-green-400" />
                   <h3 className="text-2xl font-bold text-white">Message Sent</h3>
-                  <p className="text-gray-400">
-                    We&rsquo;ll be in touch shortly.
-                  </p>
+                  <p className="text-gray-400">We&rsquo;ll be in touch shortly.</p>
                   <button
                     onClick={() => setSuccess(false)}
                     className="mt-4 text-blue-400 hover:text-blue-300 text-sm underline"
@@ -205,7 +187,7 @@ function ContactForm() {
                         })}
                         type="email"
                         className="w-full bg-[#111827] border border-[#1f2937] focus:border-blue-500 rounded-lg px-4 py-2.5 text-white placeholder-gray-600 text-sm outline-none transition-colors"
-                        placeholder="jane@fund.vc"
+                        placeholder="jane@company.com"
                       />
                       {errors.email && (
                         <p className="text-red-400 text-xs mt-1">{errors.email.message}</p>
@@ -220,7 +202,7 @@ function ContactForm() {
                     <input
                       {...register("company")}
                       className="w-full bg-[#111827] border border-[#1f2937] focus:border-blue-500 rounded-lg px-4 py-2.5 text-white placeholder-gray-600 text-sm outline-none transition-colors"
-                      placeholder="Acme Ventures"
+                      placeholder="Acme Corp"
                     />
                   </div>
 
@@ -232,10 +214,8 @@ function ContactForm() {
                       {...register("purpose", { required: "Please select a purpose" })}
                       className="w-full bg-[#111827] border border-[#1f2937] focus:border-blue-500 rounded-lg px-4 py-2.5 text-white text-sm outline-none transition-colors"
                     >
-                      <option value="investment">Investment Inquiry</option>
-                      <option value="licensing">Licensing</option>
-                      <option value="partnership">Partnership</option>
-                      <option value="general">General</option>
+                      <option value="general">General Inquiry</option>
+                      <option value="technology">Technology Discussion</option>
                     </select>
                     {errors.purpose && (
                       <p className="text-red-400 text-xs mt-1">{errors.purpose.message}</p>
@@ -250,7 +230,7 @@ function ContactForm() {
                       {...register("message", { required: "Message is required" })}
                       rows={5}
                       className="w-full bg-[#111827] border border-[#1f2937] focus:border-blue-500 rounded-lg px-4 py-2.5 text-white placeholder-gray-600 text-sm outline-none transition-colors resize-none"
-                      placeholder="Tell us about your interest in SuperMetallix..."
+                      placeholder="Tell us about your interest in SuperMetalix..."
                     />
                     {errors.message && (
                       <p className="text-red-400 text-xs mt-1">{errors.message.message}</p>

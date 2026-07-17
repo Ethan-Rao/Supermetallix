@@ -15,58 +15,58 @@ const staggerContainer = {
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
-const properties = [
-  { label: "Hardness", value: "Harder than diamond", highlight: true },
-  { label: "Machinability", value: "EDM & standard tooling compatible", highlight: false },
-  { label: "Cost vs. Diamond", value: "Fraction of the cost", highlight: false },
-  { label: "Melting Point", value: "Extreme — refractory class", highlight: false },
-  { label: "Scalability", value: "Industrial synthesis ready", highlight: false },
-  { label: "Form Factor", value: "Powder, composite, coating", highlight: false },
-];
-
 const applications = [
   {
     icon: <Drill className="w-8 h-8 text-blue-400" />,
-    title: "Cutting Tools & Drill Bits",
+    title: "Cutting Tools & Lathe Inserts",
     description:
-      "Tetride™ hard inserts and coatings dramatically extend tool life in oil & gas drilling, precision machining, and high-speed metal cutting applications.",
+      "Tetride® composite inserts may dramatically extend tool life in precision machining, hard turning, and oil & gas applications.",
     img: "/images/cutting-wheel-and-drill-bits3.png",
   },
   {
     icon: <Sparkles className="w-8 h-8 text-cyan-400" />,
     title: "Abrasive & Polishing Media",
     description:
-      "Superhard Tetride™ particles enable precision polishing and grinding of ceramics, composites, and hardened metals where conventional abrasives fall short.",
+      "Superhard Tetride® particles enable precision polishing and grinding of ceramics, composites, and hardened metals where conventional abrasives fall short.",
     img: "/images/powders2.jpg",
   },
   {
     icon: <Layers className="w-8 h-8 text-amber-400" />,
-    title: "Wear-Resistant Coatings",
+    title: "Wear-Resistant Surfaces",
     description:
-      "Thin-film and thick coatings for industrial components — extending service life of bearings, dies, and high-wear surfaces in demanding environments.",
+      "High-wear surfaces for industrial components — extending the service life of bearings, dies, and wear surfaces in demanding environments.",
     img: "/images/detail.jpg",
   },
   {
     icon: <Shield className="w-8 h-8 text-purple-400" />,
     title: "Radiation Shielding",
     description:
-      "Metal boride crystal structures offer favorable neutron absorption properties, making Tetride™ a candidate for next-generation shielding applications.",
+      "Refractory formulations containing natural abundance (or enriched \u00b9\u2070B) providing phenomenal neutron attenuation as a contender for next-generation shielding applications.",
     img: "/images/research.jpg",
   },
   {
     icon: <Atom className="w-8 h-8 text-green-400" />,
-    title: "Scratch-Resistant Surfaces",
+    title: "Ultra-High Temperature Composites",
     description:
-      "Consumer electronics, optical components, and high-value substrates benefit from Tetride™ surface treatments that resist scratching at the atomic level.",
+      "Densification of ultra-high temperature materials has been difficult due to the inherent stability of the composition. Tetride® as an additive may lower the necessary processing temperature.",
     img: "/images/detail_2.jpg",
   },
   {
     icon: <Wrench className="w-8 h-8 text-red-400" />,
-    title: "Composites & Structural Materials",
+    title: "3D Printing & Cladding",
     description:
-      "Tetride™ as a reinforcing phase in metal and ceramic matrix composites — improving hardness, strength, and thermal stability of structural components.",
+      "Proprietary binder formulations allow for 3D metal printing (SLS) and laser cladding of the material to produce complex geometries and wear-resistant surfaces.",
     img: "/images/powders3.jpg",
   },
+];
+
+const properties = [
+  { label: "Form Factor",          value: "Powders and Blanks (Billet Composites)",              highlight: false },
+  { label: "Hardness",             value: "Particles: > 44 GPa  |  Composites: > 17 GPa",       highlight: true  },
+  { label: "Melting Point",        value: "> 2200 \u00b0C \u2014 Refractory Material",           highlight: false },
+  { label: "Oxidation Resistance", value: "450 \u00b0C in air, formulation dependent",           highlight: false },
+  { label: "Machinability",        value: "Electrical Discharge Machining and Surface Grinding", highlight: false },
+  { label: "Scalability",          value: "Tonnage production capable",                          highlight: false },
 ];
 
 export default function ProductsPage() {
@@ -93,7 +93,8 @@ export default function ProductsPage() {
             Products
           </motion.p>
           <motion.h1 variants={fadeUp} className="section-heading text-5xl lg:text-6xl mb-6">
-            Tetride™ — Next-Generation Superhard Materials
+            Next-Generation Superhard Materials
+            <span className="block gradient-text">Tetride&reg;</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="section-subheading mx-auto text-gray-300">
             Novel metal boride formulations with hardness approaching diamond. Patented. Scalable.
@@ -102,73 +103,7 @@ export default function ProductsPage() {
         </motion.div>
       </section>
 
-      {/* ─── WHAT IS TETRIDE ─── */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-start">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-          >
-            <motion.p variants={fadeUp} className="section-label mb-4">
-              The Material
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-white mb-6">
-              What is Tetride™?
-            </motion.h2>
-            <motion.div variants={fadeUp} className="space-y-4 text-gray-400 leading-relaxed">
-              <p>
-                Tetride™ is SuperMetallix&rsquo;s proprietary line of superhard metal boride
-                formulations, developed through 15+ years of research at UCLA. The material is
-                harder than diamond — and unlike diamond, it can be shaped with standard industry
-                machine tools, making it practical for mass industrial applications.
-              </p>
-              <p>
-                Unlike natural diamond or CVD synthetic diamond, Tetride™ can be manufactured at
-                scale, in complex geometries, and at a fraction of the cost — making superhard
-                material performance economically viable for the first time.
-              </p>
-            </motion.div>
-          </motion.div>
-
-          {/* Properties table */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-          >
-            <motion.div
-              variants={fadeUp}
-              className="rounded-2xl border border-[#1f2937] overflow-hidden"
-            >
-              <div className="bg-[#111827] px-6 py-4 border-b border-[#1f2937]">
-                <h3 className="text-white font-bold">Key Properties</h3>
-              </div>
-              <div className="divide-y divide-[#1f2937]">
-                {properties.map((prop) => (
-                  <div
-                    key={prop.label}
-                    className="flex items-center justify-between px-6 py-4 bg-[#0d1117] hover:bg-[#111827] transition-colors"
-                  >
-                    <span className="text-gray-400 text-sm">{prop.label}</span>
-                    <span
-                      className={`font-semibold text-sm ${
-                        prop.highlight ? "gradient-text text-base" : "text-white"
-                      }`}
-                    >
-                      {prop.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ─── APPLICATIONS ─── */}
+      {/* ─── PRODUCTS / APPLICATIONS ─── */}
       <section className="py-20 px-4 bg-[#0d1117]">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -179,10 +114,10 @@ export default function ProductsPage() {
             className="text-center mb-14"
           >
             <motion.p variants={fadeUp} className="section-label mb-3">
-              Applications
+              Products
             </motion.p>
             <motion.h2 variants={fadeUp} className="section-heading">
-              Where Tetride™ Excels
+              Where Tetride&reg; Excels
             </motion.h2>
           </motion.div>
 
@@ -208,8 +143,56 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* ─── HARDNESS COMPARISON ─── */}
+      {/* ─── KEY PROPERTIES ─── */}
       <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-12"
+          >
+            <motion.p variants={fadeUp} className="section-label mb-3">
+              Specifications
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="section-heading">
+              Key Properties
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border border-[#1f2937] overflow-hidden"
+          >
+            <div className="bg-[#111827] px-6 py-4 border-b border-[#1f2937]">
+              <h3 className="text-white font-bold">Tetride&reg; Material Data</h3>
+            </div>
+            <div className="divide-y divide-[#1f2937]">
+              {properties.map((prop) => (
+                <div
+                  key={prop.label}
+                  className="flex items-center justify-between px-6 py-4 bg-[#0d1117] hover:bg-[#111827] transition-colors"
+                >
+                  <span className="text-gray-400 text-sm">{prop.label}</span>
+                  <span
+                    className={`font-semibold text-sm text-right max-w-xs ${
+                      prop.highlight ? "gradient-text" : "text-white"
+                    }`}
+                  >
+                    {prop.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── MATERIALS COMPARISON ─── */}
+      <section className="py-20 px-4 bg-[#0d1117]">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial="hidden"
@@ -219,10 +202,10 @@ export default function ProductsPage() {
             className="text-center mb-10"
           >
             <motion.p variants={fadeUp} className="section-label mb-3">
-              Performance Data
+              Materials Comparison
             </motion.p>
             <motion.h2 variants={fadeUp} className="section-heading">
-              Hardness Comparison Chart
+              Tetride&reg; vs. Industry&rsquo;s Best
             </motion.h2>
           </motion.div>
 
@@ -232,6 +215,7 @@ export default function ProductsPage() {
             viewport={{ once: true }}
             className="rounded-2xl overflow-hidden border border-gray-200 p-6 bg-white shadow-lg"
           >
+            {/* TODO: Replace with updated Tetride® vs. industry comparison chart when provided */}
             <Image
               src="/images/hardness-chart.png"
               alt="Hardness comparison"
@@ -240,7 +224,7 @@ export default function ProductsPage() {
               className="w-full h-auto"
             />
             <p className="text-gray-600 text-sm text-center mt-3">
-              Tetride™ fills the performance gap between today&rsquo;s tungsten carbide cutting
+              Tetride&reg; fills the performance gap between today&rsquo;s tungsten carbide cutting
               tools and diamond — while remaining machinable with standard industry equipment.
             </p>
           </motion.div>
@@ -248,7 +232,7 @@ export default function ProductsPage() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-20 px-4 bg-[#0d1117]">
+      <section className="py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial="hidden"
@@ -260,11 +244,10 @@ export default function ProductsPage() {
               Get Started
             </motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-white mb-5">
-              Inquire About Tetride™
+              Inquire About Tetride&reg;
             </motion.h2>
             <motion.p variants={fadeUp} className="text-gray-400 mb-8">
-              Whether you&rsquo;re exploring licensing, a material supply agreement, or an
-              investment partnership — we&rsquo;d like to hear from you.
+              If anything above has piqued your interest — we&rsquo;d like to hear from you!
             </motion.p>
             <motion.div variants={fadeUp}>
               <Link href="/contact" className="btn-primary text-base px-8 py-4">

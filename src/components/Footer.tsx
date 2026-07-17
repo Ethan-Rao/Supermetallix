@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const companyLinks = [
   { href: "/about", label: "About" },
@@ -19,31 +19,27 @@ export default function Footer() {
             <Link href="/">
               <Image
                 src="/images/SuperMetalix-Logo-Main-white.png"
-                alt="SuperMetallix"
+                alt="SuperMetalix"
                 width={160}
                 height={50}
                 className="h-8 w-auto"
               />
             </Link>
             <p className="text-sm font-semibold text-white tracking-wide">
-              Engineering the World&rsquo;s Hardest Materials
+              Commercializing the world&rsquo;s Hardest Metals
             </p>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              SuperMetallix commercializes Tetride™ — a patented superhard metal boride material
-              developed over 15+ years at UCLA&rsquo;s Kaner Laboratory.
+              SuperMetalix is scaling up novel superhard materials for various industrial
+              applications, the product of over 15+ years of superhard materials research.
             </p>
-            <div className="space-y-2">
+            <div>
               <a
-                href="mailto:info@supermetallix.com"
+                href="mailto:info@supermetalix.com"
                 className="flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors text-sm"
               >
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                info@supermetallix.com
+                info@supermetalix.com
               </a>
-              <div className="flex items-center gap-2 text-gray-500 text-sm">
-                <MapPin className="w-4 h-4 flex-shrink-0" />
-                Los Angeles, CA
-              </div>
             </div>
           </div>
 
@@ -63,14 +59,6 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/contact?purpose=investment"
-                  className="text-blue-400 hover:text-blue-300 text-sm transition-colors font-medium"
-                >
-                  Investor Inquiry →
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -79,25 +67,18 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-5 text-sm tracking-widest uppercase">
               Mission
             </h3>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              We are bringing the world&rsquo;s hardest materials to market. Tetride™ fills the
-              performance gap between today&rsquo;s tungsten carbide and diamond — at a cost and
-              scale that unlocks entirely new industrial applications.
-            </p>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              Founded on 15+ years of UCLA research. Patented. Investment-ready.
+            <p className="text-gray-400 text-sm leading-relaxed">
+              We are bringing the world&rsquo;s hardest materials to market. Tetride&reg; fills the
+              performance gap between today&rsquo;s tungsten carbide and diamond at a cost and scale
+              that unlocks entirely new industrial applications.
             </p>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-[#1f2937] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm">
-            © 2026 SuperMetallix, Inc. All rights reserved.
-          </p>
-          <p className="text-gray-600 text-xs">
-            Tetride™ is a trademark of SuperMetallix, Inc.
-          </p>
+          <p className="text-gray-500 text-sm">© 2026 SuperMetalix, Inc. All rights reserved.</p>
+          <p className="text-gray-600 text-xs">Tetride&reg; is a registered trademark of SuperMetalix, Inc.</p>
         </div>
       </div>
     </footer>

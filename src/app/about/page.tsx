@@ -17,45 +17,41 @@ const staggerContainer = {
 
 const teamMembers = [
   {
-    name: "Dr. Richard Kaner",
-    title: "Co-founder & Chief Scientific Officer",
-    img: "/images/Richard-Kaner-2.jpg",
-    bio: "Distinguished Professor at UCLA and world-renowned materials scientist. Dr. Kaner has spent 15+ years pioneering superhard metal boride research at the Kaner Laboratory, laying the scientific foundation for Tetride™.",
-  },
-  {
-    name: "Jack Kavanaugh",
-    title: "Co-founder & CEO",
+    name: "Jack Kavanaugh, MD, MBA",
+    title: "Chairman of the Board & CEO",
     img: "/images/Jack-Kavanaugh-2.jpg",
     bio: "Serial entrepreneur and technology commercialization specialist. Jack brings executive leadership experience and a track record of taking deep-tech innovations from lab to market.",
   },
   {
-    name: "Kesh Keshavan",
-    title: "Team",
-    img: "/images/Kesh-Keshavan-2.jpg",
-    bio: "Experienced operator with expertise in materials science applications and industrial technology deployment. Kesh drives strategic partnerships and market development.",
+    name: "Richard Kaner, Ph.D.",
+    title: "Chief Scientific Advisor & Board of Directors",
+    img: "/images/Richard-Kaner-2.jpg",
+    bio: "Distinguished Professor at UCLA and world-renowned materials scientist. Dr. Kaner has spent 20+ years pioneering superhard metal boride research at the Kaner Laboratory, laying the scientific foundation for Tetride\u00ae.",
   },
   {
-    name: "Chris Turner",
-    title: "Team",
+    name: "Chris Turner, Ph.D.",
+    title: "Chief Science Officer / Chief Operations Officer",
     img: "/images/Chris-Turner-thumb.jpg",
-    bio: "Background in advanced manufacturing and materials processing. Chris leads Tetride™ synthesis scale-up and production process development.",
+    bio: "Background in advanced manufacturing and materials processing. Dr. Turner leads Tetride\u00ae synthesis scale-up and production process development.",
+  },
+  {
+    name: "Mahi de Silva",
+    title: "Board of Directors",
+    img: "/images/mahi-thumbs.jpg",
+    bio: "Experienced board member and strategic advisor with deep expertise in industrial technology ventures and commercial scale-up.",
   },
   {
     name: "Robert Snukal",
-    title: "Team",
+    title: "Board of Directors",
     img: "/images/Robert-Snukal.jpg",
-    bio: "Finance and business development professional. Robert manages investor relations, capital strategy, and corporate development for SuperMetallix.",
+    bio: "Finance and business development professional. Robert manages investor relations, capital strategy, and corporate development for SuperMetalix.",
   },
-];
-
-const timeline = [
-  { year: "2005", event: "Dr. Kaner begins superhard materials research at UCLA Kaner Laboratory" },
-  { year: "2010", event: "Discovery of key metal boride formulations with diamond-approaching hardness" },
-  { year: "2015", event: "Breakthrough in composite formulation — solving the brittleness problem" },
-  { year: "2018", event: "U.S. patent filings initiated on core Tetride™ technology" },
-  { year: "2020", event: "SuperMetallix, Inc. founded to commercialize UCLA research" },
-  { year: "2023", event: "Industrial synthesis demonstrated at scale" },
-  { year: "2026", event: "Commercial partnerships and investor engagement underway" },
+  {
+    name: "Selim Senkan, Ph.D.",
+    title: "Scientific Advisor",
+    img: "/images/SelimSenkan.png",
+    bio: "Distinguished Professor of Chemical Engineering at UCLA. Prof. Senkan brings expertise in catalysis, reaction engineering, and materials processing to the SuperMetalix scientific advisory board.",
+  },
 ];
 
 export default function AboutPage() {
@@ -82,11 +78,11 @@ export default function AboutPage() {
             About Us
           </motion.p>
           <motion.h1 variants={fadeUp} className="section-heading text-5xl lg:text-6xl mb-6">
-            Built on 15 Years of Breakthrough Science
+            Leadership
           </motion.h1>
           <motion.p variants={fadeUp} className="section-subheading mx-auto text-gray-300">
-            SuperMetallix was founded to bring one of the most significant materials science advances
-            of the past decade to commercial reality.
+            SuperMetalix, Inc. brings the next-generation of superhard materials based on scientific
+            advances of the past decade to commercial reality.
           </motion.p>
         </motion.div>
       </section>
@@ -104,84 +100,28 @@ export default function AboutPage() {
               Our Story
             </motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-white mb-8">
-              From Lab to Market
+              Who we are
             </motion.h2>
             <motion.div
               variants={fadeUp}
               className="space-y-5 text-gray-400 leading-relaxed text-lg"
             >
               <p>
-                SuperMetallix was born from a question Dr. Richard Kaner&rsquo;s laboratory at UCLA
-                has been asking for over 15 years: can we engineer a material as hard as diamond, at
-                a fraction of the cost, and synthesized at industrial scale?
-              </p>
-              <p>
-                The answer is Tetride™. A patented superhard metal boride formulation that is harder
-                than diamond — and unlike diamond, machinable with standard industry tooling. This
-                makes superhard material performance economically viable for mass industrial
-                applications for the first time.
-              </p>
-              <p>
-                SuperMetallix, Inc. was established to commercialize this breakthrough, licensing the
-                technology from UCLA and building the industrial and commercial infrastructure to
-                bring Tetride™ to cutting tools, abrasives, coatings, and beyond.
+                Through proprietary formulations developed at UCLA, SuperMetalix has created
+                cost-efficient, industry-competitive materials. Under the continued scientific
+                leadership of Dr. Kaner and Dr. Turner, SuperMetalix has licensed patents from UCLA;
+                furthermore, SuperMetalix has a number of patents pending and IP in development that
+                will not only maintain its position at the forefront of technological advances, but
+                is poised to revolutionize the market — producing cost-efficient superhard metallic
+                composites far superior to today&rsquo;s commonly-used hard metals.
               </p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* ─── TIMELINE ─── */}
+      {/* ─── LEADERSHIP & ADVISORS ─── */}
       <section className="py-20 px-4 bg-[#0d1117]">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center mb-14"
-          >
-            <motion.p variants={fadeUp} className="section-label mb-3">
-              History
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="section-heading">
-              Our Journey
-            </motion.h2>
-          </motion.div>
-
-          <div className="relative">
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-[#1f2937]" />
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-              className="space-y-8"
-            >
-              {timeline.map((item) => (
-                <motion.div
-                  key={item.year}
-                  variants={fadeUp}
-                  className="flex items-start gap-6 pl-4"
-                >
-                  <div className="relative flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center z-10">
-                    <div className="w-2 h-2 rounded-full bg-blue-400" />
-                  </div>
-                  <div className="pt-1 pb-4">
-                    <span className="text-blue-400 font-bold text-sm tracking-wider">
-                      {item.year}
-                    </span>
-                    <p className="text-gray-300 mt-1">{item.event}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── TEAM ─── */}
-      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
@@ -191,10 +131,10 @@ export default function AboutPage() {
             className="text-center mb-14"
           >
             <motion.p variants={fadeUp} className="section-label mb-3">
-              Leadership
+              Team
             </motion.p>
             <motion.h2 variants={fadeUp} className="section-heading">
-              The Team
+              Leadership &amp; Advisors
             </motion.h2>
           </motion.div>
 
@@ -211,7 +151,6 @@ export default function AboutPage() {
                 variants={fadeUp}
                 className="card overflow-hidden flex flex-col gap-0 p-0"
               >
-                {/* Full-width rectangular photo */}
                 <div className="relative w-full h-48 overflow-hidden">
                   <Image
                     src={member.img}
@@ -221,7 +160,6 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/80 to-transparent" />
                 </div>
-                {/* Name + title + bio */}
                 <div className="p-6 flex flex-col gap-2">
                   <p className="text-white font-bold text-lg leading-tight">{member.name}</p>
                   <p className="text-blue-400 text-sm">{member.title}</p>
@@ -229,58 +167,6 @@ export default function AboutPage() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ─── ADVISORS ─── */}
-      <section className="py-16 px-4 bg-[#0d1117]">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center mb-12"
-          >
-            <motion.p variants={fadeUp} className="section-label mb-3">
-              Advisory Board
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="section-heading">
-              Scientific Advisors
-            </motion.h2>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="flex justify-center"
-          >
-            <motion.div
-              variants={fadeUp}
-              className="card overflow-hidden flex flex-col gap-0 p-0 max-w-sm w-full"
-            >
-              <div className="relative w-full h-48 overflow-hidden">
-                <Image
-                  src="/images/SelimSenkan.png"
-                  alt="Prof. Selim Senkan"
-                  fill
-                  className="object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/80 to-transparent" />
-              </div>
-              <div className="p-6 flex flex-col gap-2">
-                <p className="text-white font-bold text-lg">Prof. Selim Senkan</p>
-                <p className="text-cyan-400 text-sm">Scientific Advisor</p>
-                <p className="text-gray-400 text-sm leading-relaxed mt-1">
-                  Distinguished Professor of Chemical Engineering at UCLA. Prof. Senkan brings
-                  expertise in catalysis, reaction engineering, and materials processing to the
-                  SuperMetallix scientific advisory board.
-                </p>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -295,14 +181,14 @@ export default function AboutPage() {
           className="max-w-3xl mx-auto text-center border border-blue-500/20 rounded-2xl p-12 bg-blue-500/5 glow-blue"
         >
           <motion.p variants={fadeUp} className="section-label mb-4">
-            Investors
+            Get In Touch
           </motion.p>
           <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-white mb-5">
-            Seeking Strategic Investment Partners
+            Interested in SuperMetalix?
           </motion.h2>
           <motion.p variants={fadeUp} className="text-gray-400 mb-8">
-            We are actively engaging with investors who understand deep tech and the industrial
-            materials market. If that&rsquo;s you, we&rsquo;d love to connect.
+            We are actively engaging with partners and investors who understand deep tech and the
+            industrial materials market.
           </motion.p>
           <motion.div variants={fadeUp}>
             <Link href="/contact" className="btn-primary text-base px-8 py-4">

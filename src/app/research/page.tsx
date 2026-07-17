@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, FlaskConical, Layers, Shield, Wrench, Zap, BookOpen } from "lucide-react";
+import { ArrowRight, FlaskConical, Layers, Shield, Wrench, Zap, BookOpen, Gem } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -20,31 +20,37 @@ const researchAreas = [
     icon: <FlaskConical className="w-6 h-6 text-blue-400" />,
     title: "Superhard Borides",
     description:
-      "Investigation of transition metal borides as alternatives to diamond and cubic boron nitride, focusing on hardness mechanisms at the atomic level.",
+      "Investigation of transition metal borides as viable alternatives to diamond and cubic boron nitride, with a focus on atomic-level hardness mechanisms.",
   },
   {
     icon: <Zap className="w-6 h-6 text-cyan-400" />,
     title: "Synthesis Methods",
     description:
-      "Development of scalable, cost-effective synthesis routes for metal boride compounds, enabling industrial-scale production.",
+      "Development of scalable, cost-effective synthetic routes for metal borides, whether superhard or ultrahigh temperature ceramics, enabling industrial-scale production.",
   },
   {
     icon: <Layers className="w-6 h-6 text-amber-400" />,
     title: "Composite Formulations",
     description:
-      "Engineering Tetride™ composite formulations that optimize hardness, toughness, and thermal stability for specific application requirements.",
+      "Engineering Tetride® composite formulations that optimize hardness, toughness, and thermal stability for specific application requirements.",
   },
   {
     icon: <Shield className="w-6 h-6 text-purple-400" />,
     title: "Radiation Shielding",
     description:
-      "Exploring metal boride structures for radiation attenuation applications in nuclear and medical settings.",
+      "Exploring metal boride structures for radiation attenuation applications in nuclear and medical applications.",
   },
   {
     icon: <Wrench className="w-6 h-6 text-green-400" />,
     title: "Wear Resistance",
     description:
-      "Characterizing tribological properties and wear performance of Tetride™ under industrial cutting and abrasion conditions.",
+      "Characterizing tribological properties and wear performance of Tetride® under industrial cutting and abrasion conditions.",
+  },
+  {
+    icon: <Gem className="w-6 h-6 text-pink-400" />,
+    title: "Abrasive Grit",
+    description:
+      "Developing large grain and particle sizes under ambient pressure to produce a lower-cost alternative superhard abrasive material.",
   },
 ];
 
@@ -72,7 +78,7 @@ export default function ResearchPage() {
             Research & Science
           </motion.p>
           <motion.h1 variants={fadeUp} className="section-heading text-5xl lg:text-6xl mb-6">
-            The Science Behind Tetride™
+            The Science Behind Tetride&reg;
           </motion.h1>
           <motion.p variants={fadeUp} className="section-subheading mx-auto text-gray-300">
             Over 15 years of breakthrough research at UCLA&rsquo;s Kaner Laboratory has produced a
@@ -81,8 +87,42 @@ export default function ResearchPage() {
         </motion.div>
       </section>
 
-      {/* ─── ORIGIN STORY ─── */}
+      {/* ─── WHAT IS TETRIDE ─── */}
       <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.p variants={fadeUp} className="section-label mb-4">
+              The Material
+            </motion.p>
+            <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-white mb-8">
+              What is Tetride&reg;?
+            </motion.h2>
+            <motion.div variants={fadeUp} className="text-gray-300 leading-relaxed text-lg space-y-5">
+              <p>
+                Tetride&reg; is SuperMetalix&rsquo;s proprietary novel, superhard metal boride
+                formulation — the culmination of materials research at UCLA. The material is capable
+                of scratching diamond, which means in at least one crystallographic orientation it
+                is as hard as diamond.
+              </p>
+              <p>
+                However, unlike diamond (and cubic boron nitride) it does not require high pressures
+                to synthesize, thereby increasing cost-effective scalability. Facile synthesis on
+                par with tungsten carbide, with mechanochemical properties approaching those of
+                diamond and cubic boron nitride, allows for complex geometries at a fraction of the
+                cost — making a new generation of superhard materials economically viable.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── ORIGIN STORY ─── */}
+      <section className="py-20 px-4 bg-[#0d1117]">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-start">
           <motion.div
             initial="hidden"
@@ -91,7 +131,7 @@ export default function ResearchPage() {
             variants={staggerContainer}
           >
             <motion.p variants={fadeUp} className="section-label mb-4">
-              Origin Story
+              Research past to present
             </motion.p>
             <motion.h2 variants={fadeUp} className="text-3xl lg:text-4xl font-bold text-white mb-6">
               UCLA Kaner Laboratory
@@ -99,20 +139,26 @@ export default function ResearchPage() {
             <motion.div variants={fadeUp} className="space-y-4 text-gray-400 leading-relaxed">
               <p>
                 Dr. Richard Kaner&rsquo;s research group at UCLA began exploring transition metal
-                borides as superhard materials more than 15 years ago. The central insight: certain
-                metal borides form covalent bonds dense enough to resist deformation at the atomic
-                level — producing extreme hardness comparable to diamond.
+                borides as superhard materials over two decades ago. Initial work centered on osmium
+                diboride (OsB&#8322;), demonstrating that dense metal-boron covalent networks could
+                produce extreme hardness — a discovery published in the{" "}
+                <em>Journal of the American Chemical Society</em> and <em>Science</em> that
+                established the metal boride class as viable superhard candidates.
               </p>
               <p>
-                Early work identified osmium diboride and related compounds as superhard, but
-                brittle. The Tetride™ formulation overcomes this limitation through proprietary
-                composite engineering — delivering both hardness and the toughness required for
-                real-world industrial applications.
+                Research progressed to rhenium diboride (ReB&#8322;), which achieved
+                superhard-class hardness under ambient synthesis conditions — a breakthrough
+                published in <em>Science</em> (2007) that opened the door to industrial-scale
+                production without the ultra-high pressures required for diamond or cubic boron
+                nitride synthesis.
               </p>
               <p>
-                The result is a patented material system that can be synthesized at scale, at costs
-                far below natural diamond or CVD alternatives, and with hardness approaching 100 GPa
-                on the Vickers scale.
+                Through four generations of formulation experiments, the Kaner Laboratory identified
+                and optimized the composition that became Tetride&reg;. Unlike its predecessors,
+                Tetride&reg; overcomes the brittleness that limited earlier metal borides,
+                delivering the hardness and mechanical toughness required for real-world cutting tool
+                and abrasive applications — and doing so through synthesis routes compatible with
+                standard industrial equipment.
               </p>
             </motion.div>
           </motion.div>
@@ -135,11 +181,10 @@ export default function ResearchPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#050810]/80 to-transparent" />
               <div className="absolute bottom-6 left-6">
                 <p className="text-white font-bold text-lg">Dr. Richard Kaner</p>
-                <p className="text-blue-400 text-sm">UCLA Professor & Co-founder, CSO</p>
+                <p className="text-blue-400 text-sm">UCLA Professor & Chief Scientific Advisor</p>
               </div>
             </div>
 
-            {/* Secondary lab image */}
             <div className="relative h-52 rounded-2xl overflow-hidden border border-[#1f2937]">
               <Image
                 src="/images/research2.jpg"
@@ -159,7 +204,7 @@ export default function ResearchPage() {
       </section>
 
       {/* ─── HARDNESS COMPARISON ─── */}
-      <section className="py-20 px-4 bg-[#0d1117]">
+      <section className="py-20 px-4">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial="hidden"
@@ -175,7 +220,7 @@ export default function ResearchPage() {
               Hardness Comparison
             </motion.h2>
             <motion.p variants={fadeUp} className="section-subheading mx-auto">
-              How Tetride™ stacks up against the materials currently used in industrial cutting
+              How Tetride&reg; stacks up against the materials currently used in industrial cutting
               tools and abrasives.
             </motion.p>
           </motion.div>
@@ -187,6 +232,7 @@ export default function ResearchPage() {
             transition={{ duration: 0.6 }}
             className="relative rounded-2xl overflow-hidden border border-gray-200 p-6 bg-white shadow-lg"
           >
+            {/* TODO: Replace with updated Tetride® Pure / Composites hardness chart image when provided */}
             <Image
               src="/images/hardness-chart.png"
               alt="Hardness comparison chart"
@@ -195,7 +241,7 @@ export default function ResearchPage() {
               className="w-full h-auto"
             />
             <p className="text-gray-600 text-sm text-center mt-4">
-              Tetride™ fills the performance gap between today&rsquo;s tungsten carbide cutting
+              Tetride&reg; fills the performance gap between today&rsquo;s tungsten carbide cutting
               tools and diamond — while remaining machinable with standard industry equipment.
             </p>
           </motion.div>
@@ -203,7 +249,7 @@ export default function ResearchPage() {
       </section>
 
       {/* ─── RESEARCH AREAS ─── */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-[#0d1117]">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
@@ -238,8 +284,8 @@ export default function ResearchPage() {
         </div>
       </section>
 
-      {/* ─── PATENTS & PUBLICATIONS ─── */}
-      <section className="py-20 px-4 bg-[#0d1117]">
+      {/* ─── PUBLICATIONS & PATENTS ─── */}
+      <section className="py-20 px-4">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial="hidden"
@@ -252,21 +298,82 @@ export default function ResearchPage() {
               Intellectual Property
             </motion.p>
             <motion.h2 variants={fadeUp} className="section-heading">
-              Patents & Publications
+              Publications & Patents
             </motion.h2>
             <motion.p variants={fadeUp} className="section-subheading mx-auto mt-4">
-              15+ years of peer-reviewed research and a growing international patent portfolio
-              protect the core Tetride™ technology.
+              25+ years of peer-reviewed research and a growing international patent portfolio for
+              all Tetride&reg; technologies.
             </motion.p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {/* Patents Column */}
+            {/* Publications Column — LEFT */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="card"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 rounded-lg bg-blue-500/10">
+                  <BookOpen className="w-5 h-5 text-blue-400" />
+                </div>
+                <h3 className="text-white font-bold text-xl">Key Publications</h3>
+              </div>
+              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                The scientific foundation for Tetride&reg; is documented in peer-reviewed journals
+                including <em>Science</em>, <em>PNAS</em>, and the{" "}
+                <em>Journal of the American Chemical Society</em>.
+              </p>
+              <div className="space-y-4">
+                {[
+                  {
+                    title: "Designing Superhard Materials",
+                    journal: "Science, 2005 — Kaner et al.",
+                    desc: "Foundational framework for engineering hardness at the atomic level.",
+                  },
+                  {
+                    title: "Osmium Diboride, An Ultra-Incompressible, Hard Material",
+                    journal: "J. Am. Chem. Soc., 2005 — Cumberland et al.",
+                    desc: "First demonstration of transition metal borides as superhard materials.",
+                  },
+                  {
+                    title:
+                      "Synthesis of Ultra-Incompressible Superhard Rhenium Diboride at Ambient Pressure",
+                    journal: "Science, 2007 — Chung et al.",
+                    desc: "Landmark paper on ambient-pressure synthesis of superhard ReB\u2082.",
+                  },
+                  {
+                    title: "Tungsten Tetraboride, an Inexpensive Superhard Material",
+                    journal: "PNAS, 2011 — Mohammadi et al.",
+                    desc: "Identified low-cost superhard boride compound with exceptional properties.",
+                  },
+                  {
+                    title: "Rediscovering the Crystal Chemistry of Borides",
+                    journal: "Advanced Materials, 2017 — Akopov et al.",
+                    desc: "Comprehensive review of boride crystal structures for superhard applications.",
+                  },
+                ].map((pub) => (
+                  <div key={pub.title} className="p-3 rounded-lg bg-white/5 border border-white/5">
+                    <p className="text-white text-sm font-semibold leading-snug">{pub.title}</p>
+                    <p className="text-blue-400 text-xs mt-1">{pub.journal}</p>
+                    <p className="text-gray-500 text-xs mt-1">{pub.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-gray-600 text-xs mt-5 italic">
+                30+ peer-reviewed publications from the UCLA Kaner Laboratory. Full list available
+                upon request.
+              </p>
+            </motion.div>
+
+            {/* Patents Column — RIGHT */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="card"
             >
               <div className="flex items-center gap-3 mb-6">
@@ -276,16 +383,17 @@ export default function ResearchPage() {
                 <h3 className="text-white font-bold text-xl">Patent Portfolio</h3>
               </div>
               <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                SuperMetallix holds exclusive licensing rights to UCLA&rsquo;s issued and pending
-                patents covering Tetride™ formulations, synthesis processes, and commercial
-                applications. The portfolio provides broad protection across the core technology and
-                key markets.
+                SuperMetalix holds exclusive licensing rights to UCLA&rsquo;s issued and pending
+                patents covering Tetride&reg; compositions, synthesis processes, and commercial
+                applications. The portfolio includes multiple issued U.S. patents and international
+                PCT filings, protecting both the core chemistry and key industrial use cases.
+                Additional patents are actively pending as the technology continues to evolve.
               </p>
               <div className="space-y-3">
                 {[
                   {
                     title: "Superhard Metal Boride Formulations",
-                    sub: "U.S. Patent — Core Tetride™ composition claims",
+                    sub: "U.S. Patent — Core Tetride® composition claims",
                   },
                   {
                     title: "Synthesis & Processing Methods",
@@ -313,106 +421,7 @@ export default function ResearchPage() {
                 Full patent numbers and filing details available upon request under NDA.
               </p>
             </motion.div>
-
-            {/* Publications Column */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="card"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 rounded-lg bg-blue-500/10">
-                  <BookOpen className="w-5 h-5 text-blue-400" />
-                </div>
-                <h3 className="text-white font-bold text-xl">Key Publications</h3>
-              </div>
-              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                The scientific foundation for Tetride™ is documented in peer-reviewed journals
-                including <em>Science</em>, <em>PNAS</em>, and the{" "}
-                <em>Journal of the American Chemical Society</em>.
-              </p>
-              <div className="space-y-4">
-                {[
-                  {
-                    title: "Designing Superhard Materials",
-                    journal: "Science, 2005 — Kaner et al.",
-                    desc: "Foundational framework for engineering hardness at the atomic level.",
-                  },
-                  {
-                    title: "Osmium Diboride, An Ultra-Incompressible, Hard Material",
-                    journal: "J. Am. Chem. Soc., 2005 — Cumberland et al.",
-                    desc: "First demonstration of transition metal borides as superhard materials.",
-                  },
-                  {
-                    title:
-                      "Synthesis of Ultra-Incompressible Superhard Rhenium Diboride at Ambient Pressure",
-                    journal: "Science, 2007 — Chung et al.",
-                    desc: "Landmark paper on ambient-pressure synthesis of superhard ReB₂.",
-                  },
-                  {
-                    title: "Tungsten Tetraboride, an Inexpensive Superhard Material",
-                    journal: "PNAS, 2011 — Mohammadi et al.",
-                    desc: "Identified low-cost superhard boride compound with exceptional properties.",
-                  },
-                  {
-                    title: "Rediscovering the Crystal Chemistry of Borides",
-                    journal: "Advanced Materials, 2017 — Akopov et al.",
-                    desc: "Comprehensive review of boride crystal structures for superhard applications.",
-                  },
-                ].map((pub) => (
-                  <div
-                    key={pub.title}
-                    className="p-3 rounded-lg bg-white/5 border border-white/5"
-                  >
-                    <p className="text-white text-sm font-semibold leading-snug">{pub.title}</p>
-                    <p className="text-blue-400 text-xs mt-1">{pub.journal}</p>
-                    <p className="text-gray-500 text-xs mt-1">{pub.desc}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="text-gray-600 text-xs mt-5 italic">
-                30+ peer-reviewed publications from the UCLA Kaner Laboratory. Full list available
-                upon request.
-              </p>
-            </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* ─── VIDEO ─── */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center mb-10"
-          >
-            <motion.p variants={fadeUp} className="section-label mb-3">
-              Watch
-            </motion.p>
-            <motion.h2 variants={fadeUp} className="section-heading">
-              Tetride™ in Action
-            </motion.h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-2xl overflow-hidden border border-[#1f2937] aspect-video"
-          >
-            <iframe
-              src="https://www.youtube.com/embed/BA9n4pZrodo"
-              title="Tetride Superhard Materials"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            />
-          </motion.div>
         </div>
       </section>
 
@@ -422,9 +431,7 @@ export default function ResearchPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-5">
             Interested in the Science?
           </h2>
-          <p className="text-gray-400 mb-8">
-            Reach out to discuss licensing, research collaboration, or investment opportunities.
-          </p>
+          <p className="text-gray-400 mb-8">Reach out to learn more or discuss the technology!</p>
           <Link href="/contact" className="btn-primary">
             Get in Touch <ArrowRight className="w-4 h-4" />
           </Link>
