@@ -26,7 +26,10 @@ type FormData = {
 };
 
 function ContactForm() {
-  useSearchParams(); // consumed for routing context
+
+  const searchParamsData = useSearchParams();
+  const defaultPurpose =
+    searchParamsData.get("purpose") === "investment" ? "investor" : "general";
 
   const {
     register,
@@ -34,7 +37,7 @@ function ContactForm() {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<FormData>({
-    defaultValues: { purpose: "general" },
+    defaultValues: { purpose: defaultPurpose },
   });
 
   const [success, setSuccess] = useState(false);
@@ -215,7 +218,9 @@ function ContactForm() {
                       className="w-full bg-[#111827] border border-[#1f2937] focus:border-blue-500 rounded-lg px-4 py-2.5 text-white text-sm outline-none transition-colors"
                     >
                       <option value="general">General Inquiry</option>
+                      <option value="product">Product Inquiry</option>
                       <option value="technology">Technology Discussion</option>
+                      <option value="investor">Investor Relations</option>
                     </select>
                     {errors.purpose && (
                       <p className="text-red-400 text-xs mt-1">{errors.purpose.message}</p>

@@ -33,7 +33,7 @@ const pillars = [
     icon: <DollarSign className="w-8 h-8 text-cyan-400" />,
     title: "Scalability",
     description:
-      "Tetride® and composites synthesized at ambient pressure with industrial scalability. Hardnesses approaching synthetic superhard materials with the manufacturing ease of conventional tungsten carbide.",
+      "Tetride® and composites are synthesized at ambient pressure with industrial scalability. Hardnesses bridging the gap between hard materials and the synthetic superhard materials with the manufacturing ease of conventional tungsten carbide.",
   },
   {
     icon: <Globe className="w-8 h-8 text-amber-400" />,
@@ -44,10 +44,10 @@ const pillars = [
 ];
 
 const galleryItems = [
-  { src: "/images/detail.jpg",                        label: "Pure Tetride® Pellets" },
-  { src: "/images/powders2.jpg",                      label: "Tetride® Powder" },
-  { src: "/images/cutting-wheel-and-drill-bits3.png", label: "Cutting Tool Inserts" },
-  { src: "/images/malcolm-cutting-machine2.jpg",      label: "Industrial Machining" },
+  { src: "/images/Tetride-Composites.jpg",  label: "Tetride® Composites" },
+  { src: "/images/Black-Powders.png",        label: "Tetride® Powder" },
+  { src: "/images/Cutting-Tools.jpg",        label: "Cutting Tool Inserts" },
+  { src: "/images/Neutron-Shielding.jpg",    label: "Neutron Shielding" },
 ];
 
 export default function LandingPage() {
@@ -99,7 +99,7 @@ export default function LandingPage() {
               variants={fadeUp}
               className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
             >
-              SuperMetalix has created a material hard enough to scratch diamond, commercializing
+              SuperMetalix has created a material hard enough to scratch diamond, the culmination of
               over 15 years of UCLA superhard materials research.
             </motion.p>
 
@@ -182,6 +182,7 @@ export default function LandingPage() {
                 variants={fadeUp}
                 className="relative aspect-square rounded-xl overflow-hidden group"
               >
+                <Link href="/products" className="absolute inset-0 z-10" aria-label={item.label} />
                 <Image
                   src={item.src}
                   alt={item.label}
@@ -189,7 +190,7 @@ export default function LandingPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <p className="absolute bottom-3 left-3 text-white text-xs font-semibold tracking-wider uppercase">
+                <p className="absolute bottom-3 left-3 text-white text-xs font-semibold tracking-wider uppercase z-20">
                   {item.label}
                 </p>
               </motion.div>

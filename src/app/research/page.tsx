@@ -154,51 +154,38 @@ export default function ResearchPage() {
               </p>
               <p>
                 Through four generations of formulation experiments, the Kaner Laboratory identified
-                and optimized the composition that became Tetride&reg;. Unlike its predecessors,
-                Tetride&reg; overcomes the brittleness that limited earlier metal borides,
-                delivering the hardness and mechanical toughness required for real-world cutting tool
-                and abrasive applications — and doing so through synthesis routes compatible with
-                standard industrial equipment.
+                and optimized the composition that became Tetride&reg;. Combining Tetride&reg; with
+                other metals and ceramics overcomes the brittleness that pure metal borides exhibit,
+                while delivering the hardness and fracture toughness required for real-world cutting
+                tool and abrasive applications — and doing so through synthesis routes compatible
+                with standard industrial equipment.
               </p>
             </motion.div>
           </motion.div>
 
-          {/* Right column: Kaner photo + lab photo */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col gap-4"
+            className="relative"
           >
-            <div className="relative h-80 rounded-2xl overflow-hidden border border-[#1f2937]">
-              <Image
-                src="/images/Richard-Kaner-2.jpg"
-                alt="Dr. Richard Kaner"
-                fill
-                className="object-cover object-top"
+            <div className="relative aspect-video rounded-2xl overflow-hidden border border-[#1f2937] shadow-xl">
+              {/* TODO: Replace VIDEO_ID below with the correct YouTube video ID
+                  for the "Incompressibility Explained" video from the old SuperMetalix site.
+                  The current main video (BA9n4pZrodo) is the SMX intro — this should be a
+                  different video. Confirm the correct ID with the client before publishing. */}
+              <iframe
+                src="https://www.youtube.com/embed/INCOMPRESSIBILITY_VIDEO_ID_PLACEHOLDER"
+                title="Incompressibility Explained — SuperMetalix"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050810]/80 to-transparent" />
-              <div className="absolute bottom-6 left-6">
-                <p className="text-white font-bold text-lg">Dr. Richard Kaner</p>
-                <p className="text-blue-400 text-sm">UCLA Professor & Chief Scientific Advisor</p>
-              </div>
             </div>
-
-            <div className="relative h-52 rounded-2xl overflow-hidden border border-[#1f2937]">
-              <Image
-                src="/images/research2.jpg"
-                alt="Kaner Laboratory research"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050810]/60 to-transparent" />
-              <div className="absolute bottom-4 left-4">
-                <p className="text-white/70 text-xs uppercase tracking-wider">
-                  Kaner Laboratory, UCLA
-                </p>
-              </div>
-            </div>
+            <p className="text-gray-500 text-xs text-center mt-3">
+              Incompressibility and superhard materials — explained by the Kaner Laboratory.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -232,17 +219,16 @@ export default function ResearchPage() {
             transition={{ duration: 0.6 }}
             className="relative rounded-2xl overflow-hidden border border-gray-200 p-6 bg-white shadow-lg"
           >
-            {/* TODO: Replace with updated Tetride® Pure / Composites hardness chart image when provided */}
             <Image
-              src="/images/hardness-chart.png"
-              alt="Hardness comparison chart"
+              src="/images/Hardness-Comparison.png"
+              alt="Hardness comparison — Tetride® Composites and Formulations vs. industry materials"
               width={900}
               height={500}
               className="w-full h-auto"
             />
             <p className="text-gray-600 text-sm text-center mt-4">
-              Tetride&reg; fills the performance gap between today&rsquo;s tungsten carbide cutting
-              tools and diamond — while remaining machinable with standard industry equipment.
+              Tetride&reg; Composites (17–30 GPa) and Tetride&reg; Formulations (40–55 GPa) compared
+              against tool steel, cemented carbides, tungsten carbide, c-BN, and diamond.
             </p>
           </motion.div>
         </div>
@@ -259,7 +245,7 @@ export default function ResearchPage() {
             className="text-center mb-14"
           >
             <motion.p variants={fadeUp} className="section-label mb-3">
-              Research Program
+              Research Programs
             </motion.p>
             <motion.h2 variants={fadeUp} className="section-heading">
               Active Research Areas
@@ -324,7 +310,8 @@ export default function ResearchPage() {
               <p className="text-gray-400 text-sm mb-6 leading-relaxed">
                 The scientific foundation for Tetride&reg; is documented in peer-reviewed journals
                 including <em>Science</em>, <em>PNAS</em>, and the{" "}
-                <em>Journal of the American Chemical Society</em>.
+                <em>Journal of the American Chemical Society</em>. The list below highlights a few
+                key publications.
               </p>
               <div className="space-y-4">
                 {[
@@ -418,7 +405,7 @@ export default function ResearchPage() {
                 ))}
               </div>
               <p className="text-gray-600 text-xs mt-5 italic">
-                Full patent numbers and filing details available upon request under NDA.
+                Full patent numbers and filing details available upon request.
               </p>
             </motion.div>
           </div>
