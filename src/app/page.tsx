@@ -44,10 +44,10 @@ const pillars = [
 ];
 
 const galleryItems = [
-  { src: "/images/Tetride-Composites.jpg",  label: "Tetride® Composites" },
-  { src: "/images/Black-Powders.png",        label: "Tetride® Powder" },
-  { src: "/images/Cutting-Tools.jpg",        label: "Cutting Tool Inserts" },
-  { src: "/images/Neutron-Shielding.jpg",    label: "Neutron Shielding" },
+  { src: "/images/Tetride-Composites.jpg",  label: "Tetride® Composites",  whiteBg: false, zoom: false },
+  { src: "/images/Black-Powders.png",        label: "Tetride® Powder",       whiteBg: true,  zoom: false },
+  { src: "/images/Cutting-Tools.jpg",        label: "Cutting Tool Inserts",  whiteBg: false, zoom: true  },
+  { src: "/images/Neutron-Shielding.jpg",    label: "Neutron Shielding",     whiteBg: false, zoom: false },
 ];
 
 export default function LandingPage() {
@@ -58,7 +58,7 @@ export default function LandingPage() {
       <section className="relative min-h-[78vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/christopher-burns-8KfCR12oeUM-unsplash.jpg"
+            src="/images/BG-Furnace.jpg"
             alt="Background"
             fill
             className="object-cover opacity-20"
@@ -180,17 +180,27 @@ export default function LandingPage() {
               <motion.div
                 key={item.src}
                 variants={fadeUp}
-                className="relative aspect-square rounded-xl overflow-hidden group"
+                className={`relative aspect-square rounded-xl overflow-hidden group ${item.whiteBg ? "bg-white" : ""}`}
               >
                 <Link href="/products" className="absolute inset-0 z-10" aria-label={item.label} />
                 <Image
                   src={item.src}
                   alt={item.label}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className={`transition-transform duration-500 group-hover:scale-105 ${
+                    item.whiteBg
+                      ? "object-contain p-4"
+                      : item.zoom
+                      ? "object-cover scale-150"
+                      : "object-cover"
+                  }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <p className="absolute bottom-3 left-3 text-white text-xs font-semibold tracking-wider uppercase z-20">
+                {!item.whiteBg && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                )}
+                <p className={`absolute bottom-3 left-3 text-xs font-semibold tracking-wider uppercase z-20 ${
+                  item.whiteBg ? "text-gray-700" : "text-white"
+                }`}>
                   {item.label}
                 </p>
               </motion.div>
@@ -210,7 +220,7 @@ export default function LandingPage() {
             className="text-center mb-14"
           >
             <motion.p variants={fadeUp} className="section-label mb-3">Why SuperMetalix</motion.p>
-            <motion.h2 variants={fadeUp} className="section-heading">Two Pillars of Value</motion.h2>
+            <motion.h2 variants={fadeUp} className="section-heading">Novel Synergy</motion.h2>
           </motion.div>
 
           <motion.div

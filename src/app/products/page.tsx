@@ -35,14 +35,14 @@ const applications = [
     title: "Wear-Resistant Surfaces",
     description:
       "High-wear surfaces for industrial components — extending the service life of bearings, dies, and wear surfaces in demanding environments.",
-    img: "/images/detail.jpg",
+    img: "/images/Wear-Resistance.jpg",
   },
   {
     icon: <Shield className="w-8 h-8 text-purple-400" />,
     title: "Radiation Shielding",
     description:
       "Refractory formulations containing natural abundance (or enriched \u00b9\u2070B) providing phenomenal neutron attenuation as a contender for next-generation shielding applications.",
-    img: "/images/Neutron-Shielding.jpg",
+    img: "/images/Neutron.jpg",
   },
   {
     icon: <Atom className="w-8 h-8 text-green-400" />,
@@ -147,39 +147,35 @@ export default function ProductsPage() {
       {/* ─── SPECS + COMPARISON ─── */}
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="text-center mb-12"
-          >
-            <motion.p variants={fadeUp} className="section-label mb-3">Materials Comparison</motion.p>
-            <motion.h2 variants={fadeUp} className="section-heading">
-              Tetride&reg; vs. Industry&rsquo;s Best
-            </motion.h2>
-          </motion.div>
-
           <div className="grid lg:grid-cols-2 gap-8 items-start">
+
             {/* Left — Hardness Chart */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-2xl overflow-hidden border border-gray-200 bg-white p-6 shadow-lg"
+              className="flex flex-col items-center"
             >
-              {/* TODO: Replace with updated Tetride® vs. industry comparison chart when provided */}
-              <Image
-                src="/images/Hardness-Comparison.png"
-                alt="Tetride® vs. industry hardness comparison"
-                width={900}
-                height={500}
-                className="w-full h-auto"
-              />
-              <p className="text-gray-500 text-sm text-center mt-3">
-                Tetride&reg; Composites and Formulations compared against conventional cutting tool
-                materials and superhard synthetics.
-              </p>
+              <div className="text-center mb-6 w-full">
+                <p className="section-label mb-2">Materials Comparison</p>
+                <h2 className="text-2xl font-bold text-white">
+                  Tetride&reg; vs. Industry&rsquo;s Best
+                </h2>
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-gray-200 bg-white p-6 shadow-lg w-full">
+                {/* TODO: Replace with updated comparison chart image when provided */}
+                <Image
+                  src="/images/Hardness-Comparison.png"
+                  alt="Tetride® vs. industry hardness comparison"
+                  width={900}
+                  height={500}
+                  className="w-full h-auto"
+                />
+                <p className="text-gray-500 text-sm text-center mt-3">
+                  Tetride&reg; Composites and Formulations compared against conventional
+                  cutting tool materials and superhard synthetics.
+                </p>
+              </div>
             </motion.div>
 
             {/* Right — Key Properties Table */}
@@ -188,14 +184,17 @@ export default function ProductsPage() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={staggerContainer}
+              className="flex flex-col items-center"
             >
-              <motion.p variants={fadeUp} className="section-label mb-3">Specifications</motion.p>
-              <motion.h3 variants={fadeUp} className="text-2xl font-bold text-white mb-5">
-                Key Properties
-              </motion.h3>
-              <motion.div variants={fadeUp} className="rounded-2xl border border-[#1f2937] overflow-hidden">
+              <motion.div variants={fadeUp} className="text-center mb-6 w-full">
+                <p className="section-label mb-2">Specifications</p>
+                <h2 className="text-2xl font-bold text-white">Key Properties</h2>
+              </motion.div>
+              <motion.div variants={fadeUp} className="rounded-2xl border border-[#1f2937] overflow-hidden w-full">
                 <div className="bg-[#111827] px-6 py-4 border-b border-[#1f2937]">
-                  <h4 className="text-white font-bold text-sm uppercase tracking-widest">Tetride&reg; Material Data</h4>
+                  <h4 className="text-white font-bold text-sm uppercase tracking-widest text-center">
+                    Tetride&reg; Material Data
+                  </h4>
                 </div>
                 <div className="divide-y divide-[#1f2937]">
                   {properties.map((prop) => (
@@ -204,11 +203,9 @@ export default function ProductsPage() {
                       className="flex items-center justify-between px-6 py-4 bg-[#0d1117] hover:bg-[#111827] transition-colors"
                     >
                       <span className="text-gray-400 text-sm">{prop.label}</span>
-                      <span
-                        className={`font-semibold text-sm text-right max-w-[55%] ${
-                          prop.highlight ? "gradient-text" : "text-white"
-                        }`}
-                      >
+                      <span className={`font-semibold text-sm text-right max-w-[55%] ${
+                        prop.highlight ? "gradient-text" : "text-white"
+                      }`}>
                         {prop.value}
                       </span>
                     </div>
@@ -216,6 +213,7 @@ export default function ProductsPage() {
                 </div>
               </motion.div>
             </motion.div>
+
           </div>
         </div>
       </section>
