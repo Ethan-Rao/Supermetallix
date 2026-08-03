@@ -1,6 +1,6 @@
-# SuperMetallix — Corporate Website
+# SuperMetalix — Corporate Website
 
-Modern investor-facing website for SuperMetallix, Inc. Built with Next.js 14, Tailwind CSS, and Framer Motion. Deployed to DigitalOcean App Platform.
+Modern investor-facing website for SuperMetalix, Inc. Built with Next.js 14, Tailwind CSS, and Framer Motion. Deployed to DigitalOcean App Platform.
 
 ## Tech Stack
 
@@ -38,14 +38,12 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 No environment variables are required to run the development server.
 
-For production email integration (contact form), add the following to your DigitalOcean App Platform environment variables when ready:
+For production email integration (contact form), add the following to your DigitalOcean App Platform environment variables:
 
 | Variable | Description |
 |----------|-------------|
-| `SMTP_HOST` | SMTP server host (future) |
-| `SMTP_USER` | SMTP username (future) |
-| `SMTP_PASS` | SMTP password (future) |
-| `CONTACT_TO_EMAIL` | Destination email for form submissions (future) |
+| `RESEND_API_KEY` | Resend API key — enter as a Secret in the DO dashboard |
+| `CONTACT_EMAIL` | Destination email for form submissions (e.g. `cturner@supermetalix.com`) |
 
 ## Deployment
 

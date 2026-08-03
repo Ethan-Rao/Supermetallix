@@ -1,4 +1,4 @@
-name: supermetallix
+name: supermetalix
 region: nyc
 services:
   - name: web
@@ -15,3 +15,9 @@ services:
     envs:
       - key: NODE_ENV
         value: production
+      - key: RESEND_API_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: CONTACT_EMAIL
+        value: cturner@supermetalix.com
+        scope: RUN_TIME
