@@ -62,11 +62,12 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/8B.jpg"
-            alt="Crystalline material close-up"
+            alt="Crystalline superhard material"
             fill
-            className="object-cover opacity-15"
+            className="object-cover opacity-30"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050810]/70 via-[#050810]/60 to-[#050810]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050810]/60 via-[#050810]/50 to-[#050810]" />
         </div>
         <motion.div
           initial="hidden"

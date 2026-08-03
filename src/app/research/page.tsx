@@ -63,11 +63,11 @@ export default function ResearchPage() {
           src="/images/WB4-Single-Crystals.jpg"
           alt=""
           fill
-          className="object-cover opacity-30"
+          className="object-cover opacity-40"
           priority
         />
-        {/* Dark vignette — darkens edges more than center */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050810]/80 via-[#050810]/50 to-[#050810]/80" />
+        {/* Subtle dark vignette — edges slightly darker than center */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050810]/70 via-[#050810]/40 to-[#050810]/70" />
       </div>
       {/* Mobile fallback plain background */}
       <div className="sm:hidden fixed inset-0 z-0 bg-[#050810]" aria-hidden="true" />
