@@ -17,21 +17,22 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const contactEmail = process.env.CONTACT_EMAIL;
-    if (!contactEmail) {
+    const contactEmailRaw = process.env.CONTACT_EMAIL;
+    if (!contactEmailRaw) {
       console.error("CONTACT_EMAIL environment variable is not set");
       return NextResponse.json(
         { success: false, error: "Server configuration error" },
         { status: 500 }
       );
     }
+    const contactEmails = contactEmailRaw.split(",").map((e) => e.trim()).filter(Boolean);
 
     const purposeLabel = purpose || "Not specified";
     const companyLabel = company || "Not provided";
 
     await resend.emails.send({
       from: "SuperMetalix Contact Form <onboarding@resend.dev>",
-      to: contactEmail,
+      to: contactEmails,
       replyTo: email,
       subject: `[SuperMetalix] New ${purposeLabel} from ${name}`,
       html: `
