@@ -30,8 +30,11 @@ export async function POST(req: NextRequest) {
     const purposeLabel = purpose || "Not specified";
     const companyLabel = company || "Not provided";
 
+    const fromAddress =
+      process.env.RESEND_FROM_EMAIL ?? "SuperMetalix Contact Form <onboarding@resend.dev>";
+
     await resend.emails.send({
-      from: "SuperMetalix Contact Form <onboarding@resend.dev>",
+      from: fromAddress,
       to: contactEmails,
       replyTo: email,
       subject: `[SuperMetalix] New ${purposeLabel} from ${name}`,
