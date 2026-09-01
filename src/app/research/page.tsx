@@ -56,27 +56,21 @@ const researchAreas = [
 
 export default function ResearchPage() {
   return (
-    <div className="relative min-h-screen">
-      {/* Fixed background — stays in place as content scrolls (desktop only) */}
-      <div className="hidden sm:block fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <Image
-          src="/images/WB4-Single-Crystals.jpg"
-          alt=""
-          fill
-          className="object-cover opacity-40"
-          priority
-        />
-        {/* Subtle dark vignette — edges slightly darker than center */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050810]/70 via-[#050810]/40 to-[#050810]/70" />
-      </div>
-      {/* Mobile fallback plain background */}
-      <div className="sm:hidden fixed inset-0 z-0 bg-[#050810]" aria-hidden="true" />
-
-      {/* Scrolling content */}
-      <div className="relative z-10">
+    <div className="bg-[#050810]">
 
         {/* ─── HERO ─── */}
-        <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-[#050810]/90">
+        <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/WB4-Single-Crystals.jpg"
+              alt=""
+              fill
+              className="object-cover opacity-60"
+              style={{ objectPosition: "center center" }}
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#050810]/60 via-[#050810]/50 to-[#050810]" />
+          </div>
           <motion.div
             initial="hidden"
             animate="visible"
@@ -97,7 +91,7 @@ export default function ResearchPage() {
         </section>
 
         {/* ─── WHAT IS TETRIDE ─── */}
-        <section className="py-20 px-4 bg-[#050810]/90">
+        <section className="py-20 px-4 bg-[#050810]">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial="hidden"
@@ -201,7 +195,7 @@ export default function ResearchPage() {
         </section>
 
         {/* ─── HARDNESS COMPARISON ─── */}
-        <section className="py-20 px-4 bg-[#050810]/90">
+        <section className="py-20 px-4 bg-[#050810]">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial="hidden"
@@ -281,7 +275,7 @@ export default function ResearchPage() {
         </section>
 
         {/* ─── PUBLICATIONS & PATENTS ─── */}
-        <section className="py-20 px-4 bg-[#050810]/90">
+        <section className="py-20 px-4 bg-[#050810]">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial="hidden"
@@ -435,7 +429,6 @@ export default function ResearchPage() {
           </div>
         </section>
 
-      </div>
     </div>
   );
 }
