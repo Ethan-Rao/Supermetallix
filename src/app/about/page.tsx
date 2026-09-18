@@ -56,7 +56,7 @@ const teamMembers = [
     title: "Scientific Advisor",
     img: "/images/SelimSenkan.png",
     bio: "Distinguished Professor of Chemical Engineering at UCLA. Prof. Senkan brings expertise in catalysis, reaction engineering, and materials processing to the SuperMetalix scientific advisory board.",
-    objectPosition: "center 20%",
+    objectPosition: "center 5%",
   },
 ];
 
