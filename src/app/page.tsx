@@ -33,7 +33,7 @@ const pillars = [
     icon: <DollarSign className="w-8 h-8 text-cyan-400" />,
     title: "Scalability",
     description:
-      "Tetride® and composites are synthesized at ambient pressure with industrial scalability. Hardnesses bridging the gap between hard materials and the synthetic superhard materials with the manufacturing ease of conventional tungsten carbide.",
+      "Tetride® and composites are synthesized at ambient pressure with industrial scalability. Superhard performance with the manufacturing ease of conventional tungsten carbide, bridging the gap between hard materials and synthetic superhard materials.",
   },
   {
     icon: <Globe className="w-8 h-8 text-amber-400" />,
@@ -99,8 +99,8 @@ export default function LandingPage() {
               variants={fadeUp}
               className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
             >
-              SuperMetalix has created a material hard enough to scratch diamond, the culmination of
-              over 15 years of UCLA superhard materials research.
+              SuperMetalix has developed a material hard enough to scratch diamond—the culmination of more than
+              15 years of superhard research at UCLA.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex justify-center">

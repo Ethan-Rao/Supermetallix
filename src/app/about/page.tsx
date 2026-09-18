@@ -21,36 +21,42 @@ const teamMembers = [
     title: "Chairman of the Board & CEO",
     img: "/images/Jack-Kavanaugh-2.jpg",
     bio: "Serial entrepreneur and technology commercialization specialist. Jack brings executive leadership experience and a track record of taking deep-tech innovations from lab to market.",
+    objectPosition: "center 15%",
   },
   {
     name: "Richard Kaner, Ph.D.",
     title: "Chief Scientific Advisor & Board of Directors",
     img: "/images/Richard-Kaner-2.jpg",
     bio: "Distinguished Professor at UCLA and world-renowned materials scientist. Dr. Kaner has spent 20+ years pioneering superhard metal boride research at the Kaner Laboratory, laying the scientific foundation for Tetride\u00ae.",
+    objectPosition: "center 20%",
   },
   {
     name: "Chris Turner, Ph.D.",
     title: "Chief Science Officer / Chief Operations Officer",
     img: "/images/Chris-Turner-thumb.jpg",
     bio: "Background in advanced manufacturing and materials processing. Dr. Turner leads Tetride\u00ae synthesis scale-up and production process development.",
+    objectPosition: "center 10%",
   },
   {
     name: "Mahi de Silva",
     title: "Board of Directors",
     img: "/images/mahi-thumbs.jpg",
     bio: "Experienced board member and strategic advisor with deep expertise in industrial technology ventures and commercial scale-up.",
+    objectPosition: "center 20%",
   },
   {
     name: "Robert Snukal",
     title: "Board of Directors",
     img: "/images/Robert-Snukal.jpg",
     bio: "Finance and business development professional. Robert manages investor relations, capital strategy, and corporate development for SuperMetalix.",
+    objectPosition: "center 15%",
   },
   {
     name: "Selim Senkan, Ph.D.",
     title: "Scientific Advisor",
     img: "/images/SelimSenkan.png",
     bio: "Distinguished Professor of Chemical Engineering at UCLA. Prof. Senkan brings expertise in catalysis, reaction engineering, and materials processing to the SuperMetalix scientific advisory board.",
+    objectPosition: "center 20%",
   },
 ];
 
@@ -152,12 +158,13 @@ export default function AboutPage() {
                 variants={fadeUp}
                 className="card overflow-hidden flex flex-col gap-0 p-0"
               >
-                <div className="relative w-full h-48 overflow-hidden">
+                <div className="relative w-full h-64 overflow-hidden">
                   <Image
                     src={member.img}
                     alt={member.name}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover"
+                    style={{ objectPosition: member.objectPosition ?? "center 20%" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/80 to-transparent" />
                 </div>
