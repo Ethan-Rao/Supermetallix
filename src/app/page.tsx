@@ -137,20 +137,20 @@ export default function LandingPage() {
 
       {/* ─── KEY STATS BAR ─── */}
       <section className="bg-[#0d1117] border-y border-[#1f2937] py-12">
-        <div className="max-w-5xl mx-auto px-4 grid grid-cols-3 gap-0">
-          <div className="text-center px-6 border-r border-[#1f2937]">
-            <div className="text-4xl lg:text-5xl font-bold text-white font-display mb-1">15+</div>
-            <div className="text-sm text-gray-400 uppercase tracking-widest">Years of Superhard Research</div>
+        <div className="max-w-5xl mx-auto px-2 sm:px-4 grid grid-cols-3 gap-0">
+          <div className="text-center px-1 sm:px-6 border-r border-[#1f2937] min-w-0">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-display mb-1">15+</div>
+            <div className="text-[10px] leading-tight sm:text-sm sm:leading-normal text-gray-400 uppercase tracking-wide sm:tracking-widest">Years of Superhard Research</div>
           </div>
-          <div className="text-center px-6 border-r border-[#1f2937]">
-            <div className="text-2xl lg:text-3xl font-bold text-white font-display mb-1 leading-snug">
+          <div className="text-center px-1 sm:px-6 border-r border-[#1f2937] min-w-0">
+            <div className="text-lg sm:text-2xl lg:text-3xl font-bold text-white font-display mb-1 leading-snug">
               Globally Patented
             </div>
-            <div className="text-sm text-gray-400 uppercase tracking-widest">Technology</div>
+            <div className="text-[10px] leading-tight sm:text-sm sm:leading-normal text-gray-400 uppercase tracking-wide sm:tracking-widest">Technology</div>
           </div>
-          <div className="text-center px-6">
-            <div className="text-4xl lg:text-5xl font-bold gradient-text font-display mb-1">$50B+</div>
-            <div className="text-sm text-gray-400 uppercase tracking-widest">Global Markets</div>
+          <div className="text-center px-1 sm:px-6 min-w-0">
+            <div className="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text font-display mb-1 tracking-tight sm:tracking-normal">$50B+</div>
+            <div className="text-[10px] leading-tight sm:text-sm sm:leading-normal text-gray-400 uppercase tracking-wide sm:tracking-widest">Global Markets</div>
           </div>
         </div>
       </section>
